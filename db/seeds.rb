@@ -31,6 +31,66 @@ users = User.create([
 		bfclass: "Engineer", 
 		availability: "Tuesday before bedtime", 
 		system: "Xbox 360" 
-	}
+	},
+	{
+		password: "password3", 
+		email: "yaz@yaz.yaz", 
+		tag: "Yasmin", 
+		style: 2, 
+		age: 22, 
+		region: "Austin, TX", 
+		contact: "XboxLiveID: DasFremenator", 
+		bfclass: "Support", 
+		availability: "Not very often", 
+		system: "Xbox 360" 
+	},
+	{
+		password: "password4", 
+		email: "lynda@lynda.lynda", 
+		tag: "Lynda", 
+		style: 4, 
+		age: 21, 
+		region: "Austin, TX", 
+		contact: "PSNID: Lynda", 
+		bfclass: "Assault", 
+		availability: "Not very often", 
+		system: "Playstation" 
+	},
+	{
+		password: "password5", 
+		email: "greg@greg.greg", 
+		tag: "Greg", 
+		style: 1, 
+		age: 21, 
+		region: "Austin, TX", 
+		contact: "PSNID: Greg", 
+		bfclass: "Recon", 
+		availability: "Sometimes", 
+		system: "Playstation" 
+	},
+	{
+		password: "password6", 
+		email: "amy@amy.amy", 
+		tag: "Amy", 
+		style: 3, 
+		age: 21, 
+		region: "Austin, TX", 
+		contact: "SteamID: Amy", 
+		bfclass: "Engineer", 
+		availability: "Sometimes", 
+		system: "PC" 
+	},
+	{
+		password: "password7", 
+		email: "gamble@gamble.gamble", 
+		tag: "Gamble", 
+		style: 5, 
+		age: 21, 
+		region: "Austin, TX", 
+		contact: "XboxLiveID: Gamble", 
+		bfclass: "Assault", 
+		availability: "All the time", 
+		system: "Xbox 360" 
+	},
 ])
 
