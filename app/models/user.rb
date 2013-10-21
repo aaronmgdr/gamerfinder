@@ -9,10 +9,16 @@ class User < ActiveRecord::Base
 
   end
 
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['system Like ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+
   # takes users' system(s) and finds all users with >1 in common
   #
-  def system_match(system)
-  	User.find_by_system(system)
-  end
+  
 
 end

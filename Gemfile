@@ -42,6 +42,7 @@ group :doc do
 end
 
 gem 'devise'
+gem 'haml'
 
 group :development do
 	gem 'hirb'

@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-puts "is it working?"
 users = User.create([
 	{
 		password: "password", 
@@ -39,7 +38,7 @@ users = User.create([
 		style: 2, 
 		age: 22, 
 		region: "Austin, TX", 
-		contact: "XboxLiveID: DasFremenator", 
+		contact: "XboxLiveID: Yaz", 
 		bfclass: "Support", 
 		availability: "Not very often", 
 		system: "Xbox 360" 
@@ -92,5 +91,17 @@ users = User.create([
 		availability: "All the time", 
 		system: "Xbox 360" 
 	},
+	{
+		password: "password8", 
+		email: "clay@clay.clay", 
+		tag: "Clay", 
+		style: 5, 
+		age: 21, 
+		region: "Austin, TX", 
+		contact: "PSNID: Clay", 
+		bfclass: "Assault", 
+		availability: "Sure", 
+		system: "Playstation" 
+	}
 ])
 

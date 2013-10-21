@@ -1,11 +1,13 @@
 
 <h1>Hello</h1>
 
+<%= render 'matchform' %> 
+
 <% @users.each do |gamer| %>
 	<div class="column large-1 tile"> 
-		<h3> <%= gamer.tag %> </h3>
+		<h3><%=gamer.tag %> </h3>
 		<p><%=gamer.system %></p>
 		<p><%=gamer.style %> </p>
-		<p><%= gamer.contact %> </p>
+		<p><%=gamer.contact %> </p>
 	</div>
 <% end %>
