@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+systems = System.create([
+	{name: 'PS3'},
+	{name: 'XBOX360'},
+	{name: 'PC'}
+	])
+
 users = User.create([
 	{
 		password: "password", 
@@ -16,8 +22,7 @@ users = User.create([
 		region: "Austin, TX", 
 		contact: "SteamID: Helix386", 
 		bfclass: "Assault", 
-		availability: "anytime anywhere bitch", 
-		system: "PC"
+		availability: "anytime anywhere bitch",
 	}, 
 	{
 		password: "password2", 
@@ -28,8 +33,7 @@ users = User.create([
 		region: "Austin, TX", 
 		contact: "XboxLiveID: DasFremenator", 
 		bfclass: "Engineer", 
-		availability: "Tuesday before bedtime", 
-		system: "Xbox 360" 
+		availability: "Tuesday before bedtime",
 	},
 	{
 		password: "password3", 
@@ -40,8 +44,7 @@ users = User.create([
 		region: "Austin, TX", 
 		contact: "XboxLiveID: Yaz", 
 		bfclass: "Support", 
-		availability: "Not very often", 
-		system: "Xbox 360" 
+		availability: "Not very often",
 	},
 	{
 		password: "password4", 
@@ -52,8 +55,7 @@ users = User.create([
 		region: "Austin, TX", 
 		contact: "PSNID: Lynda", 
 		bfclass: "Assault", 
-		availability: "Not very often", 
-		system: "Playstation" 
+		availability: "Not very often",
 	},
 	{
 		password: "password5", 
@@ -65,7 +67,6 @@ users = User.create([
 		contact: "PSNID: Greg", 
 		bfclass: "Recon", 
 		availability: "Sometimes", 
-		system: "Playstation" 
 	},
 	{
 		password: "password6", 
@@ -77,7 +78,6 @@ users = User.create([
 		contact: "SteamID: Amy", 
 		bfclass: "Engineer", 
 		availability: "Sometimes", 
-		system: "PC" 
 	},
 	{
 		password: "password7", 
@@ -89,7 +89,6 @@ users = User.create([
 		contact: "XboxLiveID: Gamble", 
 		bfclass: "Assault", 
 		availability: "All the time", 
-		system: "Xbox 360" 
 	},
 	{
 		password: "password8", 
@@ -101,7 +100,9 @@ users = User.create([
 		contact: "PSNID: Clay", 
 		bfclass: "Assault", 
 		availability: "Sure", 
-		system: "Playstation" 
 	}
 ])
 
+users.each do |user|
+	SystemPreference.create(user: user, system: System.find(Random.rand(1..3)))
+end
