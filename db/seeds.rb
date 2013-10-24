@@ -6,103 +6,89 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-systems = System.create([
-	{name: 'PS3'},
-	{name: 'XBOX360'},
-	{name: 'PC'}
+questions = Question.create([
+	{inquiry: 'When do you play'},
+	{inquiry: 'What position do you want to your teammate to play'},
+	{inquiry: 'Which style do not want your teammate to play'},
+	{inquiry: 'Which will you not play'}
 	])
+
+puts "q"
+
+answers_array = [
+	"sometimes",
+	"runing and gunning",
+	"shotguns only",
+	"peace love and...",
+	]
+puts "aa"
+
+
+
+puts "loop 1"
 
 users = User.create([
 	{
-		password: "password", 
-		email: "mike@mike.mike", 
-		tag: "mikeftw", 
-		style: 5, 
-		age: 14, 
-		region: "Austin, TX", 
-		contact: "SteamID: Helix386", 
-		bfclass: "Assault", 
-		availability: "anytime anywhere bitch",
-	}, 
-	{
-		password: "password2", 
-		email: "fremen@fremen.fremen", 
-		tag: "xXx_frem_xXx", 
-		style: 1, 
-		age: 12, 
-		region: "Austin, TX", 
-		contact: "XboxLiveID: DasFremenator", 
-		bfclass: "Engineer", 
-		availability: "Tuesday before bedtime",
+		password: "password",
+		email: "mike@mike.mike",
+		age_range: 1,
+		city: "Alice Springs",
+		country: "Australia",
 	},
 	{
-		password: "password3", 
-		email: "yaz@yaz.yaz", 
-		tag: "Yasmin", 
-		style: 2, 
-		age: 22, 
-		region: "Austin, TX", 
-		contact: "XboxLiveID: Yaz", 
-		bfclass: "Support", 
-		availability: "Not very often",
+		password: "password2",
+		email: "fremen@fremen.fremen",
+		age_range: 2,
+		city: "Brussel",
+		country: "Belgium"
 	},
 	{
-		password: "password4", 
-		email: "lynda@lynda.lynda", 
-		tag: "Lynda", 
-		style: 4, 
-		age: 21, 
-		region: "Austin, TX", 
-		contact: "PSNID: Lynda", 
-		bfclass: "Assault", 
-		availability: "Not very often",
+		password: "password3",
+		email: "yaz@yaz.yaz",
+		age_range: 3,
+		city: "Calgary",
+		country: "Canada",
 	},
 	{
-		password: "password5", 
-		email: "greg@greg.greg", 
-		tag: "Greg", 
-		style: 1, 
-		age: 21, 
-		region: "Austin, TX", 
-		contact: "PSNID: Greg", 
-		bfclass: "Recon", 
-		availability: "Sometimes", 
+		password: "password4",
+		email: "lynda@lynda.lynda",
+		age_range: 2,
+		city: "Tyler",
+		state: "Texas",
+		country: "USA",
 	},
 	{
-		password: "password6", 
-		email: "amy@amy.amy", 
-		tag: "Amy", 
-		style: 3, 
-		age: 21, 
-		region: "Austin, TX", 
-		contact: "SteamID: Amy", 
-		bfclass: "Engineer", 
-		availability: "Sometimes", 
+		password: "password5",
+		email: "greg@greg.greg",
+		age_range: 3,
+		city: "Calgary",
+		country: "Canada",
 	},
 	{
-		password: "password7", 
-		email: "gamble@gamble.gamble", 
-		tag: "Gamble", 
-		style: 5, 
-		age: 21, 
-		region: "Austin, TX", 
-		contact: "XboxLiveID: Gamble", 
-		bfclass: "Assault", 
-		availability: "All the time", 
+		password: "password6",
+		email: "amy@amy.amy",
+		age_range: 4,
+		city: "Brussel",
+		country: "Belgium",
 	},
 	{
-		password: "password8", 
-		email: "clay@clay.clay", 
-		tag: "Clay", 
-		style: 5, 
-		age: 21, 
-		region: "Austin, TX", 
-		contact: "PSNID: Clay", 
-		bfclass: "Assault", 
-		availability: "Sure", 
+		password: "password8",
+		email: "clay@clay.clay",
+		age_range: 1,
+		city: "Brugge",
+		country: "Belgium",
 	}
 ])
 
-users.each do |user|
-	SystemPreference.create(user: user, system: System.find(Random.rand(1..3)))
+puts "u"
+
+questions.each do |question|
+	puts  question.id
+	Answer.create(choice: answers_array[Random.rand(1..4)])
 end
+
+users.each do |user|
+	Response.create(user: user, answer: Answer.find(Random.rand(1..4)))
+end
+
+
