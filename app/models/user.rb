@@ -8,14 +8,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['systems Like ?', "%#{search}%"])
-    else
-      find(:all)
-    end
-  end
-
-  # takes users' system(s) and finds all users with >1 in common
-  #
+  # def self.search(search)
+  #   if search
+  #     find(:all, :conditions => ['systems Like ?', "%#{search}%"])
+  #   else
+  #     find(:all)
+  #   end
+  # end
 end
