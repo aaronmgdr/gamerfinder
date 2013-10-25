@@ -28,7 +28,22 @@ class User < ActiveRecord::Base
   end
 
   def compare_to_all
-   
+    users = User.all
+    @similarity = Hash.new {}
+    likeness = []
+
+    users.each do |looped_user|
+     puts "#{looped_user.email} answers #{looped_user.answers}"
+     overlap = self.answers & looped_user.answers
+     puts "in Both #{overlap}"
+
+    likeness = overlap.length.to_f / looped_user.answers.length.to_f
+
+    puts "They are #{likeness*100}% similar"
+
+      @similarity["#{looped_user.email}"] = likeness
+    end
+    return @similarity
   end
 
   private
