@@ -15,4 +15,6 @@ class User < ActiveRecord::Base
   #     find(:all)
   #   end
   # end
+
+
 end
