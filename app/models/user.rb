@@ -8,48 +8,35 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # def self.search(search)
-  #   if search
-  #     find(:all, :conditions => ['systems Like ?', "%#{search}%"])
-  #   else
-  #     find(:all)
-  #   end
-  # end
 
   def answers
+    # this picks the users's responses for all questions - returns an array of answers
     self.responses.pluck(:answer_id)
   end
 
-  def compare(user_id)
-    mine = self.answers
-    theirs= User.find(user_id).responses.pluck(:answer_id)
-
-    answer_array_comparer(mine, theirs)
-  end
 
   def compare_to_all
-    users = User.all
-    @similarity = Hash.new {}
-    likeness = []
-
-    users.each do |looped_user|
-     puts "#{looped_user.email} answers #{looped_user.answers}"
-     overlap = self.answers & looped_user.answers
-     puts "in Both #{overlap}"
-
-    likeness = overlap.length.to_f / looped_user.answers.length.to_f
-
-    puts "They are #{likeness*100}% similar"
-
-      @similarity["#{looped_user.email}"] = likeness
+    similarity = {}
+    User.all.each do |looped_user|
+      overlapping_answers = self.answers & looped_user.answers
+      value = (overlapping_answers.length.to_f / answers.length.to_f)
+      similarity["#{looped_user.email}"] = value
     end
-    return @similarity
-  end
-
-  private
-
-  def answer_array_comparer(my_array, their_array)
-    overlaping_answers = my_array & their_array
-    likeness = overlaping_answers.length.to_f / my_array.length.to_f
+    return similarity
   end
 end
+
+
+
+# -------------------------------------------------------------
+  # This was originally built to help build compare_to_all
+  # def compare(user_id)
+  #   # my answers
+  #   mine = self.answers
+
+  #   #next person's answers
+  #   # theirs= User.find(user_id).responses.pluck(:answer_id)
+  #   theirs= User.find(user_id).answers
+  #   answer_array_comparer(mine, theirs)
+  # end
+  # -------------------------------------------------------------
