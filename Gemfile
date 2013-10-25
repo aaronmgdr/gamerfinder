@@ -48,6 +48,7 @@ group :development do
 	gem 'hirb'
 	gem 'better_errors'
 	gem 'binding_of_caller'
+  gem 'pry'
 end
 
 group :development, :test do

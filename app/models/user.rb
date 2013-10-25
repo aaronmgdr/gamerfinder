@@ -14,6 +14,20 @@ class User < ActiveRecord::Base
     self.responses.pluck(:answer_id)
   end
 
+
+  def compare_to_all
+    similarity = {}
+    User.all.each do |looped_user|
+      overlapping_answers = self.answers & looped_user.answers
+      value = (overlapping_answers.length.to_f / answers.length.to_f)
+      similarity["#{looped_user.email}"] = value
+    end
+    return similarity
+  end
+end
+
+
+
 # -------------------------------------------------------------
   # This was originally built to help build compare_to_all
   # def compare(user_id)
@@ -26,36 +40,3 @@ class User < ActiveRecord::Base
   #   answer_array_comparer(mine, theirs)
   # end
   # -------------------------------------------------------------
-
-
-  def compare_to_all
-    users = User.all
-    @similarity = Hash.new {}
-    puts self.email
-    users.each do |looped_user|
-      puts "#{looped_user.email} answers #{looped_user.answers}"
-      answer_array_comparer(self.answers,looped_user.answers)
-      
-
-
-      # puts "in Both #{overlap}"
-
-      # likeness = overlap.length.to_f / looped_user.answers.length.to_f
-
-      # puts "They are #{likeness*100}% similar"
-
-      @similarity["#{looped_user.email}"] = @likeness
-    end
-    return @similarity
-  end
-
-  private
-
-  # takes in both person's arrays.  
-  def answer_array_comparer(my_array, their_array)
-    #overlapping_answers = only overlapped answers
-    overlapping_answers = my_array & their_array
-    #returns percent similarity between user a & user b
-    @likeness = (overlapping_answers.length.to_f / my_array.length.to_f)*100
-  end
-end
