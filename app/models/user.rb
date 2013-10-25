@@ -16,5 +16,25 @@ class User < ActiveRecord::Base
   #   end
   # end
 
+  def answers
+    self.responses.pluck(:answer_id)
+  end
 
+  def compare(user_id)
+    mine = self.answers
+    theirs= User.find(user_id).responses.pluck(:answer_id)
+
+    answer_array_comparer(mine, theirs)
+  end
+
+  def compare_to_all
+   
+  end
+
+  private
+
+  def answer_array_comparer(my_array, their_array)
+    overlaping_answers = my_array & their_array
+    likeness = overlaping_answers.length.to_f / my_array.length.to_f
+  end
 end
