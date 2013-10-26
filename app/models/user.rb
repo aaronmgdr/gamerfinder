@@ -22,17 +22,21 @@ class User < ActiveRecord::Base
     User.all.each do |looped_user|
       overlapping_answers = self.answers & looped_user.answers
       value = (overlapping_answers.length.to_f / answers.length.to_f)
-      similarity["#{looped_user.email}"] = value
-      
+
       unless self.id == looped_user.id
-        Comparison.find_or_create_by(
-          user_id:"#{self.id}", 
-          compared_user_id: "#{looped_user.id}",
-          match_percent: "#{value}"
-        )
+        if Comparison.where(user_id:"#{self.id}", compared_user_id: "#{looped_user.id}").exists?
+          puts"update"          
+          User.find(self.id).comparisons.find_by_compared_user_id(looped_user.id).update(match_percent: "#{value}")
+        else
+         puts "create"
+          Comparison.create(
+            user_id:"#{self.id}", 
+            compared_user_id: "#{looped_user.id}",
+            match_percent: "#{value}"
+          )
+        end    
       end
     end
-    return similarity
   end
 end
 
