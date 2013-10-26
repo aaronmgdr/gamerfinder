@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :responses
   has_many :answers, through: :responses
   has_many :questions, through: :answers
+  has_many :comparisons
+  has_many :compared_users, :through => :comparisons
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
