@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
-	# def index
-	# 	@users = User.search(params[:search])
-	# end
-
-	# def get_system(sys)
-	# 	@matches = User.where('system=?', sys)
- #  end
-
+	def index
+		@users = User.all
+	end
 end

@@ -1,13 +1,29 @@
 
-<h1>Hello</h1>
+<h1>All Users</h1>
 
-<%= render 'matchform' %> 
 
 <% @users.each do |gamer| %>
 	<div class="column large-1 tile"> 
-		<h3><%=gamer.tag %> </h3>
-		<p><%=gamer.systems.first.name %></p>
-		<p><%=gamer.style %> </p>
-		<p><%=gamer.contact %> </p>
-	</div>
+		<h3><%= gamer.email %> </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Users Matches</th>
+          <th>Match Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% gamer.comparisons.each do |similarity| %>
+          <tr>
+            <td><%= similarity.compared_user.email %></td>
+            <td><%= similarity.match_percent %></td>
+          </tr>
+        <% end %>  
+      </tbody>
+      
+        
+        
+     
+    </table>
+  </div>
 <% end %>
