@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @sorted_matches = User.find(params[:id]).comparisons.order('match_percent').reverse
   end
 
-  private 
+  private
      # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -19,3 +19,5 @@ class UsersController < ApplicationController
 
 
 end
+
+
