@@ -6,7 +6,7 @@ class Comparison < ActiveRecord::Base
     Comparison.delete_all
 
     i=1
-    while i < User.count
+    while i <= User.count
       User.find(i).compare_to_all
       i += 1
     end
