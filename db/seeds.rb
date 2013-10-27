@@ -15,21 +15,30 @@ questions = Question.create([
 
 users = User.create([
 	{
+		name: "MikeFTW",
 		password: "password",
 		email: "mike@mike.mike",
-		},
+	},
 	{
-		password: "password2",
+		name: "xXx_dasFremenator_xXx",
+		password: "password",
 		email: "fremen@fremen.fremen",
 
-			},
+	},
 	{
-		password: "password3",
+		name: "Daftstar",
+		password: "password",
+		email: "nik@nik.nik",
+	},
+	{
+		name: "Yasmin",
+		password: "password",
 		email: "yaz@yaz.yaz",
 
-			},
+	},
 	{
-		password: "password4",
+		name: "Lynda",
+		password: "password",
 		email: "lynda@lynda.lynda",
 	}
 	# {
@@ -72,6 +81,6 @@ users.each do |user|
 	])
 end
 
-
+Comparison.quick_populate
 
 
