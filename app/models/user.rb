@@ -23,11 +23,9 @@ class User < ActiveRecord::Base
   end
   
   # Internal: Generates a score the user calling method against all other users.
-  # 
   # Saves the results to the Comparisons Table
   #
   # Examples
-  #
   #   compare_to_all
   #   # =>   '+----+---------------+---------+------------------+-------------------------+-------------------------+
             # | id | match_percent | user_id | compared_user_id | created_at              | updated_at              |
@@ -37,26 +35,44 @@ class User < ActiveRecord::Base
             # | 5  | 0.25          | 2       | 4                | 2013-10-26 19:42:55 UTC | 2013-10-26 19:42:55 UTC |'
   #
   # Returns nothing 
+  # def compare_to_all
+  #   User.all.each do |user_being_compared|
+  #     #
+  #     overlapping_answers = self.answers & user_being_compared.answers
+  #     value = (overlapping_answers.length.to_f / answers.length.to_f)
+
+  #     #Ensures user comparison with itself is not save to DB
+  #     unless self.id == user_being_compared.id
+  #       #Updates the record if it exists, otherwise creates a new association
+  #       if Comparison.where(user_id:"#{self.id}", compared_user_id: "#{user_being_compared.id}").exists?          
+  #         User.find(self.id).comparisons.find_by_compared_user_id(user_being_compared.id).update(match_percent: "#{value}")
+  #       else
+  #         Comparison.create(
+  #           user_id:"#{self.id}", 
+  #           compared_user_id: "#{user_being_compared.id}",
+  #           match_percent: "#{value}"
+  #         )
+  #       end    
+  #     end
+  #     return Comparison.all
+  #   end
+  # end
+
+
+# Before running compare_to_all, run >>  Comparison.delete_all
+
+
+
   def compare_to_all
     User.all.each do |user_being_compared|
-      #
-      overlapping_answers = self.answers & user_being_compared.answers
-      value = (overlapping_answers.length.to_f / answers.length.to_f)
-
-      #Ensures user comparison with itself is not save to DB
-      unless self.id == user_being_compared.id
-        #Updates the record if it exists, otherwise creates a new association
-        if Comparison.where(user_id:"#{self.id}", compared_user_id: "#{user_being_compared.id}").exists?          
-          User.find(self.id).comparisons.find_by_compared_user_id(user_being_compared.id).update(match_percent: "#{value}")
-        else
-          Comparison.create(
-            user_id:"#{self.id}", 
-            compared_user_id: "#{user_being_compared.id}",
-            match_percent: "#{value}"
-          )
-        end    
-      end
-      return Comparison.all
+    overlapping_answers = self.answers & user_being_compared.answers
+    value = (overlapping_answers.length.to_f / answers.length.to_f)
+    Comparison.create(
+      user_id:"#{self.id}", 
+      compared_user_id: "#{user_being_compared.id}",
+      match_percent: "#{value}"
+    )    
     end
+    return Comparison.all
   end
 end
