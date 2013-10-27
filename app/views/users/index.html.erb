@@ -4,7 +4,7 @@
 
 <% @users.each do |gamer| %>
 	<div class="column large-1 tile"> 
-		<h3><%= gamer.email %> </h3>
+		<h3><%= link_to gamer.email, user_path(gamer.id) %> </h3>
     <table>
       <thead>
         <tr>

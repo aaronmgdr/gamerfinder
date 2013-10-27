@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
   end
   
   # Internal: Generates a score the user calling method against all other users.
+  # 
+  # Saves the results to the Comparisons Table
+  #
   # Examples
   #
   #   compare_to_all
@@ -33,7 +36,7 @@ class User < ActiveRecord::Base
             # | 4  | 0.5           | 2       | 3                | 2013-10-26 19:42:55 UTC | 2013-10-26 19:42:55 UTC |
             # | 5  | 0.25          | 2       | 4                | 2013-10-26 19:42:55 UTC | 2013-10-26 19:42:55 UTC |'
   #
-  # Saves the results to the Comparisons Table 
+  # Returns nothing 
   def compare_to_all
     User.all.each do |user_being_compared|
       #
