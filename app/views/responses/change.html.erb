@@ -1,11 +1,24 @@
 <ul>
+  <form action=<%="/users/#{current_user.id}/responses/bulk_update" %> method="patch">
   <% @questions.each do |question| %>
     <li><%= question.inquiry %>
       <ul>
         <% question.answers.each do |answer| %>
-          <li><%=answer.choice%></li>
+          <li><label for="<%=question.id%>"><%=answer.choice%></label>
+            <input
+              type='radio'
+              name="<%=question.id%>"
+              value="<%=answer.id%>"
+              checked=<%=Response.find_by_user_id(params[:user_id]).answer.id%>
+              >
+            </input>
+          </li>
         <% end %>
       </ul>
     </li>
+    <input type="hidden" value="<%=params[:user_id]%>">
   <% end %>
+  <button type="submit">submit</button>
+</form>
+<%= params %>
 </ul>
