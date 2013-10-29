@@ -7,11 +7,8 @@
     <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %>
     <%= friendship.match_percent %>
     <p> Timezone:<%= Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %> </p>
-      <% friendship.compared_user.titles.each do |title| %>
-        <p><%= title.name %></p>
-      <% end %>
-      <% friendship.compared_user.platforms.each do |platform| %>
-        <p><%= platform.console %></p>
+      <% friendship.compared_user.games.each do |game| %>
+        <p><%= game.title.name %> | <%= game.platform.console %></p>
       <% end %>
     <hr>
   <% end %>
