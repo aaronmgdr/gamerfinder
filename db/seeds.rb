@@ -13,47 +13,53 @@ questions = Question.create([
 	{inquiry: 'What time zone'}
 ])
 
+games = Game.create([
+	{title:"GTA V"},
+	{title:"Battlefield 4"},
+	{title:"Call of Duty: Ghosts"}
+])
+
 users = User.create([
 	{
 		name: "MikeFTW",
 		password: "password",
-		email: "mike@mike.mike",
+		email: "mike@mike.mike"
 	},
 	{
 		name: "xXx_dasFremenator_xXx",
 		password: "password",
-		email: "fremen@fremen.fremen",
-
+		email: "fremen@fremen.fremen"
 	},
 	{
 		name: "Daftstar",
 		password: "password",
-		email: "nik@nik.nik",
+		email: "nik@nik.nik"
 	},
 	{
 		name: "Yasmin",
 		password: "password",
-		email: "yaz@yaz.yaz",
-
+		email: "yaz@yaz.yaz"
 	},
 	{
 		name: "Lynda",
 		password: "password",
-		email: "lynda@lynda.lynda",
+		email: "lynda@lynda.lynda"
+	},
+	{
+		name: "Greg",
+		password: "password",
+		email: "greg@greg.greg"
+	},
+	{
+		name: "Joe",
+		password: "password",
+		email: "joe@joe.joe"
+	},
+	{
+		name: "Jesse",
+		password: "password",
+		email: "jesse@jesse.jesse"
 	}
-	# {
-	# 	password: "password5",
-	# 	email: "greg@greg.greg",
-	# 		},
-	# {
-	# 	password: "password6",
-	# 	email: "amy@amy.amy",
-
-	# },
-	# {
-	# 	password: "password8",
-	# 	email: "clay@clay.clay",
-	# 		}
 ])
 
 Question.first.answers.create(choice: "morning")
@@ -78,7 +84,8 @@ users.each do |user|
 		{user: user, answer: Answer.find(Random.rand(4..6))},
 		{user: user, answer: Answer.find(Random.rand(7..9))},
 		{user: user, answer: Answer.find(Random.rand(10..12))}
-	])
+	])e
+	Platform.create([{user: user, game: Game.find(Random.rand(1..3)), name: "Xbox 360"}])
 end
 
 Comparison.quick_populate
