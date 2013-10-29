@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :compared_users, :through => :comparisons
   has_many :games
   has_many :titles, through: :games
+  has_many :platforms, through: :games
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

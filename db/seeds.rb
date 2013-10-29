@@ -59,10 +59,16 @@ users = User.create([
 	}
 ])
 
-Title.create([
+titles = Title.create([
 	{name:"GTA V"},
 	{name:"Battlefield 4"},
 	{name:"Call of Duty: Ghosts"}
+])
+
+platforms = Platform.create([
+	{console: "PC/Steam"},
+	{console: "Xbox"},
+	{console: "Playstation"}
 ])
 
 Question.first.answers.create(choice: "morning")
@@ -89,8 +95,8 @@ users.each do |user|
 		{user: user, answer: Answer.find(Random.rand(10..12))}
 	])
 	Game.create([
-		{user: user, title: Title.find(Random.rand(1..3))},
-		{user: user, title: Title.find(Random.rand(1..3))}
+		{user: user, title: Title.find(Random.rand(1..3)), platform: Platform.find(Random.rand(1..3))},
+		{user: user, title: Title.find(Random.rand(1..3)), platform: Platform.find(Random.rand(1..3))}
 	])
 end
 
