@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131027211303) do
+ActiveRecord::Schema.define(version: 20131029022232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20131027211303) do
     t.datetime "updated_at"
   end
 
+  create_table "games", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "title_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["title_id"], name: "index_games_on_title_id", using: :btree
+  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
+
   create_table "questions", force: true do |t|
     t.string   "inquiry"
     t.datetime "created_at"
@@ -46,6 +56,12 @@ ActiveRecord::Schema.define(version: 20131027211303) do
 
   add_index "responses", ["answer_id"], name: "index_responses_on_answer_id", using: :btree
   add_index "responses", ["user_id"], name: "index_responses_on_user_id", using: :btree
+
+  create_table "titles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
