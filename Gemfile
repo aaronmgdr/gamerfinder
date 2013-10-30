@@ -43,6 +43,7 @@ end
 
 gem 'devise'
 gem 'haml'
+gem 'xbox_leaders'
 
 group :development do
 	gem 'hirb'
