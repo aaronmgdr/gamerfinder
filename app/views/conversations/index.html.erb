@@ -5,7 +5,7 @@
 <% @conversations.each do |conversation| %>
   <% receipts = conversation.receipts_for(current_user) %>
     <% receipts.each do |receipt| %>
-      <br> <%= receipt.message.sender.name %> | <%= receipt.message.subject%> | <%= receipt.message.body%> 
+      <br> <%= receipt.message.sender.name %> | <%= receipt.message.subject%> | <%=link_to receipt.message.body, message_path(receipt.message.id)%> 
       <% if receipt.is_unread? or message.is_unread?(current_user) %>
         <%= "Unread" %>
         <% end %>
