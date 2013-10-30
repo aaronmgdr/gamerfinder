@@ -18,11 +18,8 @@
     <div class="column large-1 tile">
       <h3><%= link_to gamer.name, user_path(gamer.id) %> </h3>
       <p> Timezone:<%= Question.find(4).responses.find_by_user_id(gamer.id).answer.choice %> </p>
-      <% gamer.titles.each do |title| %>
-        <p><%= title.name %></p>
-      <% end %>
-      <% gamer.platforms.each do |platform| %>
-        <p><%= platform.console %></p>
+      <% gamer.games.each do |game| %>
+        <p><%= game.title.name %> | <%= game.platform.console %></p>
       <% end %>
       <hr>
     </div>
