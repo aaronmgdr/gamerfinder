@@ -9,9 +9,8 @@
               type='radio'
               name="<%=question.id%>"
               value="<%=answer.id%>"
-              checked=<%=Response.find_by_user_id(params[:user_id]).answer.id%>
-              >
-            </input>
+              <%= "checked" if current_user.responses.where(answer: answer).count > 0 %>
+              />
           </li>
         <% end %>
       </ul>

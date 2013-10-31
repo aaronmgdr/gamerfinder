@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-questions = Question.create([
+Question.create([
 	{inquiry: 'When do you play'},
 	{inquiry: 'What position do you want to your teammate to play'},
 	{inquiry: 'What is your age range'},
@@ -72,15 +72,21 @@ Question.find(4).answers.create(choice: "Eastern")
 Question.find(4).answers.create(choice: "Central")
 Question.find(4).answers.create(choice: "Hawaiian")
 
+
 users.each do |user|
-	Response.create([
-		{user: user, answer: Answer.find(Random.rand(1..3))},
-		{user: user, answer: Answer.find(Random.rand(4..6))},
-		{user: user, answer: Answer.find(Random.rand(7..9))},
-		{user: user, answer: Answer.find(Random.rand(10..12))}
-	])
+  Response.create([
+    {user: user, answer: Answer.find(Random.rand(1..3))},
+    {user: user, answer: Answer.find(Random.rand(4..6))},
+    {user: user, answer: Answer.find(Random.rand(7..9))},
+    {user: user, answer: Answer.find(Random.rand(10..12))}
+  ])
 end
 
+	binding.pry
+
 Comparison.quick_populate
+
+	binding.pry
+
 
 
