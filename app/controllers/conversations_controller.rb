@@ -1,7 +1,10 @@
+#shamlessly copied with minor modificatations from https://github.com/ging/social_stream/blob/master/base/app/controllers/conversations_controller.rb
+
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :get_mailbox, :get_box, :get_gamer
   before_filter :check_current_subject_in_conversation, :only => [:show, :update, :destroy]
+
 
   def index
     if @box.eql? "inbox"
@@ -70,7 +73,9 @@ class ConversationsController < ApplicationController
   end
 
   private
-
+  # set the mailbox to be the browsing user's list of sent and received messages
+  # current_user is a devise method for accessing the authenticated user
+  # 
   def get_mailbox
     @mailbox = current_user.mailbox
   end

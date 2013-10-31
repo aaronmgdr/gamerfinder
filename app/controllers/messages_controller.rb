@@ -1,7 +1,10 @@
+#shamlessly copied from https://github.com/ging/social_stream/blob/master/base/app/controllers/messages_controller.rb
+
 class MessagesController < ApplicationController
 
   before_filter :authenticate_user!
   before_filter :get_mailbox, :get_box, :get_actor
+  
   def index
     redirect_to conversations_path(:box => @box)
   end
