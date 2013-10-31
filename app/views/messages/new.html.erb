@@ -1,0 +1,10 @@
+<%= params %>
+<%= @receiver_id %>
+
+<%= simple_form_for :messages, :url => "/messages" do |f| %>
+  <%= f.input :_recipient, :value => @receiver_id, :placeholder => @receiver_id %> 
+  <%= f.input :subject, placeholder: 'Wanna Game?' %>
+  <%= f.input :body, placeholder: 'write here' %>
+  <%= f.button :submit %>
+<% end %>
+
