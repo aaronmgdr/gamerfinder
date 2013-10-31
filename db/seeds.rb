@@ -26,9 +26,16 @@ users = User.create([
 
 	},
 	{
+		name: "AnthroR",
+		password: "password",
+		email: "randy@randy.randy",
+		xbox_gamertag: "anthror"
+	},
+	{
 		name: "Daftstar",
 		password: "password",
 		email: "nik@nik.nik",
+		xbox_gamertag: "daft star"
 	},
 	{
 		name: "Yasmin",

@@ -44,6 +44,7 @@ end
 gem 'devise'
 gem 'haml'
 gem 'xbox_leaders'
+gem 'json'
 
 group :development do
 	gem 'hirb'
