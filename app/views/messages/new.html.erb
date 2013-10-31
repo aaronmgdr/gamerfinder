@@ -1,10 +1,14 @@
 <%= params %>
 <%= @receiver_id %>
 
-<%= simple_form_for :messages, :url => "/messages" do |f| %>
-  <%= f.input :_recipient, :value => @receiver_id, :placeholder => @receiver_id %> 
-  <%= f.input :subject, placeholder: 'Wanna Game?' %>
-  <%= f.input :body, placeholder: 'write here' %>
-  <%= f.button :submit %>
-<% end %>
 
+<%= simple_form_for :messages, :url => "/messages" do |f| %>
+  <% if @receiver_id == nil %>
+    <%= f.select(:_recipient, @users.collect {|u| [ u.name, u.id ] }) %>
+  <% else %>
+    <%= f.hidden_field :_recipient, required: true, value: @receiver_id, placeholder: User.find(@receiver_id).name %> 
+  <% end%>
+  <%= f.input :subject, placeholder: 'Wanna Game?', required: true%>
+  <%= f.input :body, placeholder: 'write here', required: true%>
+  <%= f.button :submit, :value => "send message" %>
+<% end %>

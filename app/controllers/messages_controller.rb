@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
   def new
     @users = User.all
     @receiver_id = params[:receiver]
-  
+    
   end
 
   # GET /messages/1/edit
@@ -38,9 +38,8 @@ class MessagesController < ApplicationController
   # POST /messages.xml
 
   def create
-  @recipients = 
     if params[:messages][:_recipient].present?
-      @recipients = User.find(params[:messages][:_recipient])
+      @recipients = [User.find(params[:messages][:_recipient])]
     else
       []
     end
@@ -49,7 +48,7 @@ class MessagesController < ApplicationController
     if (@receipt.errors.blank?)
       @conversation = @receipt.conversation
       flash[:success]= t('mailboxer.sent')
-      redirect_to conversation_path(@conversation, :box => :sentbox)
+      redirect_to conversation_path(@conversation.id)
     else
       render :action => :new
     end
