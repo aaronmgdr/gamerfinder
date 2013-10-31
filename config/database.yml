@@ -5,8 +5,7 @@ development:
   pool: 5
   port: 5432
   host: localhost
-  username: postgres
-  password: password
+
 
 test:
   adapter: postgresql
@@ -15,5 +14,4 @@ test:
   pool: 5
   port: 5432
   host: localhost
-  username: postgres
-  password: password
+

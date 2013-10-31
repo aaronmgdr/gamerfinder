@@ -57,6 +57,9 @@ group :development, :test do
 	gem 'rspec-rails'
 end
 
+#xbox leaders API - gem
+gem 'xbox_leaders'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
