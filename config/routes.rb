@@ -56,7 +56,8 @@ Gamerfinder::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :conversations  
+  
   resources :messages
-
-  resources :conversations
+  
 end

@@ -1,22 +1,2 @@
-<%= current_user_is_owner? ? "YES": "NO" %>
+<%= current_user_is_owner? ? render 'my_profile' : render 'auth_profile' %>
 
-<h1><%=@user.email %></h1>
-
-<h3> Who should I game with? </h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Users Matches</th>
-      <th>Match Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @sorted_matches.each do |similarity|  %>
-      <tr>
-        <td><%= similarity.compared_user.email  %></td>
-        <td><%= similarity.match_percent %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

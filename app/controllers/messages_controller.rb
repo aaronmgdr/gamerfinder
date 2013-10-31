@@ -24,11 +24,9 @@ class MessagesController < ApplicationController
   # GET /messages/new
   # GET /messages/new.xml
   def new
-    if params[:receiver].present?
-      @recipient = Actor.find_by_slug(params[:receiver])
-      return if @recipient.nil?
-      @recipient = nil if Actor.normalize(@recipient)==Actor.normalize(current_subject)
-    end
+    @users = User.all
+    @receiver_id = params[:receiver]
+  
   end
 
   # GET /messages/1/edit
@@ -38,15 +36,16 @@ class MessagesController < ApplicationController
 
   # POST /messages
   # POST /messages.xml
-  def create
-    @recipients = 
-      if params[:_recipients].present?
-        @recipients = params[:_recipients].split(',').map{ |r| Actor.find(r) }
-      else
-        []
-      end
 
-    @receipt = @actor.send_message(@recipients, params[:body], params[:subject])
+  def create
+  @recipients = 
+    if params[:messages][:_recipient].present?
+      @recipients = User.find(params[:messages][:_recipient])
+    else
+      []
+    end
+
+    @receipt = @actor.send_message(@recipients, params[:messages][:body], params[:messages][:subject])
     if (@receipt.errors.blank?)
       @conversation = @receipt.conversation
       flash[:success]= t('mailboxer.sent')
@@ -86,4 +85,7 @@ class MessagesController < ApplicationController
     @box = params[:box]
   end
 
+  def message_params
+      params.require(:_recipient, :subject, :body)
+  end
 end
