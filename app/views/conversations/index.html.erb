@@ -3,14 +3,42 @@
 <div> <%= link_to other_box.capitalize, conversations_path + "?box=#{other_box}" %> </div>
 
 <h1><%=@box.capitalize%></h1> 
-<p> From | Subject | Body </p>
+<table>
+  <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Subject</th>
+      <th>Preview</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td>Sender</td>
+      <td>Subject</td>
+      <td>Preview</td>
+      <td>Status</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @conversations.each do |conversation| %>
+      <% receipts = conversation.receipts_for(current_user) %>
+        <% receipts.each do |receipt| %>
+          <tr>
+            <td><%= receipt.message.sender.name %> </td>
+            <td><%= receipt.message.subject%></td>
+            <td><%=link_to receipt.message.body, message_path(receipt.message.id)%>
+            </td>
+            <td>
+              <% if receipt.is_unread? or receipt.message.is_unread?(current_user) %>
+                <%= "Unread" %>
+              <% else %>
+                <%= "Opened" %>
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <%end%>
+  </tbody>
+</table
 
-<% @conversations.each do |conversation| %>
-  <% receipts = conversation.receipts_for(current_user) %>
-    <% receipts.each do |receipt| %>
-      <br> <%= receipt.message.sender.name %> | <%= receipt.message.subject%> | <%=link_to receipt.message.body, message_path(receipt.message.id)%> 
-      <% if receipt.is_unread? or receipt.message.is_unread?(current_user) %>
-        <%= "Unread" %>
-        <% end %>
-    <% end %>
-<%end%>
