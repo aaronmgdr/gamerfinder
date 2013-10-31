@@ -45,6 +45,7 @@ gem 'devise'
 gem 'haml'
 gem 'xbox_leaders'
 gem 'json'
+gem 'deepopenstruct'
 
 group :development do
 	gem 'hirb'
