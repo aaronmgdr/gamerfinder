@@ -26,9 +26,16 @@ users = User.create([
 
 	},
 	{
+		name: "AnthroR",
+		password: "password",
+		email: "randy@randy.randy",
+		xbox_gamertag: "anthror"
+	},
+	{
 		name: "Daftstar",
 		password: "password",
 		email: "nik@nik.nik",
+		xbox_gamertag: "daft star"
 	},
 	{
 		name: "Yasmin",
@@ -40,20 +47,35 @@ users = User.create([
 		name: "Lynda",
 		password: "password",
 		email: "lynda@lynda.lynda",
-	}
-	# {
-	# 	password: "password5",
-	# 	email: "greg@greg.greg",
-	# 		},
-	# {
-	# 	password: "password6",
-	# 	email: "amy@amy.amy",
+	},
+	{
+		name: "Greg",
+		password: "password",
+		email: "greg@greg.greg",
+	},
+	{
+		name: "Joe",
+		password: "password",
+		email: "joe@joe.joe",
 
-	# },
-	# {
-	# 	password: "password8",
-	# 	email: "clay@clay.clay",
-	# 		}
+	},
+	{
+		name: "Jesse",
+		password: "password",
+		email: "jesse@jesse.jesse",
+	}
+])
+
+titles = Title.create([
+	{name:"GTA V"},
+	{name:"Battlefield 4"},
+	{name:"Call of Duty: Ghosts"}
+])
+
+platforms = Platform.create([
+	{console: "PC/Steam"},
+	{console: "Xbox"},
+	{console: "Playstation"}
 ])
 
 Question.first.answers.create(choice: "morning")
@@ -78,6 +100,10 @@ users.each do |user|
 		{user: user, answer: Answer.find(Random.rand(4..6))},
 		{user: user, answer: Answer.find(Random.rand(7..9))},
 		{user: user, answer: Answer.find(Random.rand(10..12))}
+	])
+	Game.create([
+		{user: user, title: Title.find(Random.rand(1..3)), platform: Platform.find(Random.rand(1..3))},
+		{user: user, title: Title.find(Random.rand(1..3)), platform: Platform.find(Random.rand(1..3))}
 	])
 end
 

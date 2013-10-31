@@ -45,6 +45,8 @@ end
 
 gem 'devise'
 gem 'haml'
+gem 'xbox_leaders'
+gem 'json'
 
 group :development do
 	gem 'hirb'
@@ -58,6 +60,9 @@ group :development, :test do
 	gem 'rspec'
 	gem 'rspec-rails'
 end
+
+#xbox leaders API - gem
+gem 'xbox_leaders'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
