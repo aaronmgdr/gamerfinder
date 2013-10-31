@@ -1,0 +1,10 @@
+<h1>Welcome <%= current_user.name %></h1>
+  <h3> Who should I game with? </h3>
+  
+
+  <% current_user.comparisons.order('match_percent').reverse.each do |friendship| %>
+    <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %>
+    <%= friendship.match_percent %>
+    <p> Timezone:<%= Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %> </p>
+    <hr>
+  <% end %>
