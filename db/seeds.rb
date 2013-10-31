@@ -82,11 +82,11 @@ users.each do |user|
   ])
 end
 
-	binding.pry
+
 
 Comparison.quick_populate
 
-	binding.pry
+
 
 
 

@@ -22,9 +22,8 @@ class ResponsesController < ApplicationController
   end
 
   def bulk_update
-    print "hello pry"
-    binding.pry
-    Response.create(user_id: params[:user_id], answer_id: 2)
+    # Response.create(user_id: params[:user_id], answer_id: 2)
+    Response.update(user_id: params[:user_id], answer_id: 2)
   end
 
 

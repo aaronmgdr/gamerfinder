@@ -1,5 +1,5 @@
 <ul>
-  <form action=<%="/users/#{current_user.id}/responses/bulk_update" %> method="patch">
+  <form action=<%="/users/#{current_user.id}/responses/bulk_update" %> method="put">
   <% @questions.each do |question| %>
     <li><%= question.inquiry %>
       <ul>
