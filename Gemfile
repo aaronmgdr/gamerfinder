@@ -21,7 +21,9 @@ gem 'zurb-foundation', '~> 4.0.0'
 
 gem 'simple_form'
 
-#
+# for in app messaging between users
+gem 'mailboxer'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -51,6 +53,7 @@ group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
   gem 'pry'
+  gem 'quiet_assets'
 end
 
 group :development, :test do

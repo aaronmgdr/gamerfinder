@@ -1,6 +1,5 @@
 module UsersHelper
-
-  # def timezone
-  #  @timezone = Question.find(4).responses.find_by_user_id(current_user.id).answer.choice
-  # end
+  def current_user_is_owner?
+    current_user == @user
+  end
 end
