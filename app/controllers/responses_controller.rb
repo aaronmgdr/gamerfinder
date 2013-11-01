@@ -22,6 +22,7 @@ class ResponsesController < ApplicationController
   end
 
   def bulk_update
+    
     # Response.create(user_id: params[:user_id], answer_id: 2)
     Response.update(user_id: params[:user_id], answer_id: 2)
   end
