@@ -1,0 +1,6 @@
+<%= params %>
+<h3><%= @conversation.subject   %></h3>
+
+<p> <%= message_body %> </p>
+
+<br> <%= link_to 'Reply', new_message_path(receiver: 1   , conversation: @conversation.id) %>

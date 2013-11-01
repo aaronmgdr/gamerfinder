@@ -26,25 +26,27 @@ class MessagesController < ApplicationController
   def new
     @users = User.all
     @receiver_id = params[:receiver]
-    
+    @conversation_id = params[:conversation] || false
   end
 
   # GET /messages/1/edit
   def edit
-
   end
 
   # POST /messages
   # POST /messages.xml
 
   def create
-    if params[:messages][:_recipient].present?
-      @recipients = [User.find(params[:messages][:_recipient])]
-    else
-      []
+    
+    if message_params[:_recipient].present?
+      @recipients = [User.find(message_params[:_recipient])]
     end
-
-    @receipt = @actor.send_message(@recipients, params[:messages][:body], params[:messages][:subject])
+    if message_params[:conversation].present? 
+      @receipt = @actor.reply_to_all(Conversation.find(message_params[:conversation]), message_params[:body])
+    else
+      @receipt = @actor.send_message(@recipients, message_params[:body], message_params[:subject])
+    end
+    binding.pry
     if (@receipt.errors.blank?)
       @conversation = @receipt.conversation
       flash[:success]= t('mailboxer.sent')
@@ -85,6 +87,6 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-      params.require(:_recipient, :subject, :body)
+      params.require(:messages)
   end
 end

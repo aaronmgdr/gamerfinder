@@ -27,7 +27,7 @@
           <tr>
             <td><%= receipt.message.sender.name %> </td>
             <td><%= receipt.message.subject%></td>
-            <td><%=link_to receipt.message.body, message_path(receipt.message.id)%>
+            <td><%=link_to receipt.message.body, conversation_path(conversation.id)%>
             </td>
             <td>
               <% if receipt.is_unread? or receipt.message.is_unread?(current_user) %>
@@ -41,4 +41,3 @@
     <%end%>
   </tbody>
 </table
-
