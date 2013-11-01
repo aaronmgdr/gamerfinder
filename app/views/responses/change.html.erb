@@ -1,23 +1,19 @@
-<ul>
-  <form action=<%="/users/#{current_user.id}/responses/bulk_update" %> method="put">
+<%= form_tag ("/users/#{current_user.id}/responses/bulk_update"), method: :put do %>
+  <% counter = 0 %>
   <% @questions.each do |question| %>
     <li><%= question.inquiry %>
       <ul>
         <% question.answers.each do |answer| %>
           <li><label for="<%=question.id%>"><%=answer.choice%></label>
-            <input
-              type='radio'
-              name="<%=question.id%>"
-              value="<%=answer.id%>"
-              <%= "checked" if current_user.responses.where(answer: answer).count > 0 %>
-              />
+            
+            <%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>
           </li>
         <% end %>
+        <% counter += 1 %>
       </ul>
     </li>
     <input type="hidden" value="<%=params[:user_id]%>">
   <% end %>
-  <button type="submit">submit</button>
-</form>
+  <%= submit_tag 'submit' %>
+<% end %>
 <%= params %>
-</ul>
