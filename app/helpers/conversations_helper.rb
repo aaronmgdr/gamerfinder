@@ -11,7 +11,7 @@ module ConversationsHelper
     end
   end
 
-  def message_body
-    @conversation.receipts_for(current_user).first.message.body
+  def messages_in_conversation
+    @conversation.receipts_for(current_user)
   end
 end

@@ -37,12 +37,13 @@ class MessagesController < ApplicationController
   # POST /messages.xml
 
   def create
-    
+    #set recipient if it was passed in from the previous page
     if message_params[:_recipient].present?
       @recipients = [User.find(message_params[:_recipient])]
     end
+    # determins if this is a new conversation or a reply continuing a conversation
     if message_params[:conversation].present? 
-      @receipt = @actor.reply_to_all(Conversation.find(message_params[:conversation]), message_params[:body])
+      @receipt = @actor.reply_to_conversation(Conversation.find(message_params[:conversation]), message_params[:body])
     else
       @receipt = @actor.send_message(@recipients, message_params[:body], message_params[:subject])
     end
