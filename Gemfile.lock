@@ -61,13 +61,10 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.2)
-<<<<<<< HEAD
-=======
     foreigner (1.6.0)
       activerecord (>= 3.0.0)
     foundation (0.05)
       jammit
->>>>>>> 791449cb1c7377dcb8bfbb8cc2329eef3fbc10a5
     fssm (0.2.10)
     haml (4.0.3)
       tilt
