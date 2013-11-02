@@ -1,27 +1,5 @@
-
-
 <% if user_signed_in? %>
-  <h1>Welcome <%= current_user.name %></h1>
-  <h3> Who should I game with? </h3>
-  <% current_user.comparisons.order('match_percent').reverse.each do |friendship|  %>
-    <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %>
-    <%= friendship.match_percent %>
-    <p> Timezone:<%= Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %> </p>
-      <% friendship.compared_user.games.each do |game| %>
-        <p><%= game.title.name %> | <%= game.platform.console %></p>
-      <% end %>
-    <hr>
-  <% end %>
-<%else%>
-
-  <% @users.each do |gamer| %>
-    <div class="column large-1 tile">
-      <h3><%= link_to gamer.name, user_path(gamer.id) %> </h3>
-      <p> Timezone:<%= Question.find(4).responses.find_by_user_id(gamer.id).answer.choice %> </p>
-      <% gamer.games.each do |game| %>
-        <p><%= game.title.name %> | <%= game.platform.console %></p>
-      <% end %>
-      <hr>
-    </div>
-  <% end %>
+  <%= render 'auth_index' %>
+<% else %>
+  <%= render 'public_index'%>
 <% end %>

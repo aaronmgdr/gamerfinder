@@ -1,0 +1,7 @@
+<% @users.each do |gamer| %>
+  <div class="column large-1 tile">
+    <h3><%= link_to gamer.name, user_path(gamer.id) %> </h3>
+    <p> <%="#{Question.find(2).inquiry}: #{Question.find(2).responses.find_by_user_id(gamer.id).answer.choice}" %> </p>
+    <hr>
+  </div>
+<% end %>
