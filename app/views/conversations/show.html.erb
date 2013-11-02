@@ -1,0 +1,12 @@
+<%= params %>
+<h3><%= @conversation.subject   %></h3>
+
+<div> 
+  <% messages_in_conversation.each do |msg| %> 
+    <hr>
+    <p><%= msg.message.sender.name %></p>
+    <p><%= msg.message.body %></p>
+  <% end %>
+</div>
+
+<br> <%= link_to 'Reply', new_message_path(receiver: 1   , conversation: @conversation.id) %>

@@ -14,6 +14,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # this makes the Mailboxer messaging work
+  acts_as_messageable
+
+  # to get mailboxer to send actual emails this needs to return an email address if the user has one
+  def mailboxer_email(object)
+    false
+  end
 
   # Internal: Gets calling users answers to all questions sorted lowest to highest
   # Examples

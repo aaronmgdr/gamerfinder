@@ -1,6 +1,5 @@
-
-
 <% if user_signed_in? %>
+  <%= render 'auth_index' %<% else %>
   <h1>Welcome <%= current_user.name %></h1>
   <h3> Who should I game with? </h3>
   <% current_user.comparisons.order('match_percent').reverse.each do |friendship|  %>
@@ -16,7 +15,7 @@
     <hr>
   <% end %>
 <%else%>
-
+ <%= render 'public_index'%>
   <% @users.each do |gamer| %>
     <div class="column large-1 tile">
       <h3><%= link_to gamer.name, user_path(gamer.id) %> </h3>
