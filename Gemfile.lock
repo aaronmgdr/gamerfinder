@@ -171,7 +171,7 @@ GEM
     tzinfo (0.3.38)
     uglifier (2.3.0)
       execjs (>= 0.3.0)
-      json (>= 1.8.0)
+      multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.3)
       rack (>= 1.0)
     xbox_leaders (2.0.0)
