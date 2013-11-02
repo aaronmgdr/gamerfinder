@@ -4,12 +4,23 @@ class User < ActiveRecord::Base
   has_many :questions, through: :answers
   has_many :comparisons
   has_many :compared_users, :through => :comparisons
+  has_many :games
+  has_many :titles, through: :games
+  has_many :platforms, through: :games
+  has_one  :xbox_gamer_info
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # this makes the Mailboxer messaging work
+  acts_as_messageable
+
+  # to get mailboxer to send actual emails this needs to return an email address if the user has one
+  def mailboxer_email(object)
+    false
+  end
 
   # Internal: Gets calling users answers to all questions sorted lowest to highest
   # Examples
@@ -21,8 +32,6 @@ class User < ActiveRecord::Base
   def answers
     self.responses.pluck(:answer_id).sort
   end
-
-
 
 
 # Before running compare_to_all, run >>  Comparison.delete_all

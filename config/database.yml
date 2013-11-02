@@ -6,6 +6,7 @@ development:
   port: 5432
   host: localhost
 
+
 test:
   adapter: postgresql
   encoding: unicode
@@ -13,3 +14,4 @@ test:
   pool: 5
   port: 5432
   host: localhost
+

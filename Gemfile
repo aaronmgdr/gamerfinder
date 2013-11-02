@@ -21,6 +21,9 @@ gem 'zurb-foundation', '~> 4.0.0'
 
 gem 'simple_form'
 
+# for in app messaging between users
+gem 'mailboxer'
+
 gem 'country_select'
 
 #
@@ -43,12 +46,15 @@ end
 
 gem 'devise'
 gem 'haml'
+gem 'xbox_leaders'
+gem 'json'
 
 group :development do
 	gem 'hirb'
 	gem 'better_errors'
 	gem 'binding_of_caller'
   gem 'pry'
+  gem 'quiet_assets'
 end
 
 group :development, :test do

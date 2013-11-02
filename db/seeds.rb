@@ -40,21 +40,30 @@ users = User.create([
 		name: "Lynda",
 		password: "password",
 		email: "lynda@lynda.lynda",
-	}
-	# {
-	# 	password: "password5",
-	# 	email: "greg@greg.greg",
-	# 		},
-	# {
-	# 	password: "password6",
-	# 	email: "amy@amy.amy",
+	},
+	{
+		name: "Greg",
+		password: "password",
+		email: "greg@greg.greg",
+	},
+	{
+		name: "Joe",
+		password: "password",
+		email: "joe@joe.joe",
 
-	# },
-	# {
-	# 	password: "password8",
-	# 	email: "clay@clay.clay",
-	# 		}
+	},
+	{
+		name: "Jesse",
+		password: "password",
+		email: "jesse@jesse.jesse",
+	},
+    { 
+		name: "Clay,
+		password: "password8",
+		email: "clay@clay.clay",
+	}
 ])
+
 
 Question.first.answers.create(choice: "morning")
 Question.first.answers.create(choice: "afternoon")

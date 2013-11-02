@@ -1,7 +1,7 @@
 Gamerfinder::Application.routes.draw do
   devise_for :users, :path => 'accounts'
   root 'users#index'
-
+  resources :xbox_gamer_info
   resources :users do
     resources :responses do
       collection do
@@ -12,22 +12,8 @@ Gamerfinder::Application.routes.draw do
   end
 end
 
-
-
-
-
-
-
-
-
-#   Gamerfinder::Application.routes.draw do
-#   devise_for :users, :path => 'accounts'
-#   root 'users#index'
-
-#   resources :users do
-#     resources :responses do
-#       get 'change', :on => :collection
-#       put 'bulk_update', :on => :collection
-#     end
-#   end
-# end
+  resources :conversations  
+  
+  resources :messages
+  
+end

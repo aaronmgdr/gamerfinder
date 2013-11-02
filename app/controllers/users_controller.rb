@@ -13,11 +13,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # @responses = User.find(params[:user_id]).responses
-     
-
   end
 
+  def update
+    @user = User.find(params[:id])
+  end
 
   private
      # Use callbacks to share common setup or constraints between actions.

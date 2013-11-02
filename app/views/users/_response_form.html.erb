@@ -1,0 +1,4 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.association :responses, as: :check_boxes %>
+  <%= f.button :submit %>
+<% end %>
