@@ -10,6 +10,9 @@
       <% friendship.compared_user.games.each do |game| %>
         <p><%= game.title.name %> | <%= game.platform.console %></p>
       <% end %>
+      <% if friendship.compared_user.xbox_gamertag.present? %>
+        <p><%= friendship.compared_user.xbox_gamertag %></p>
+      <% end %>
     <hr>
   <% end %>
 <%else%>

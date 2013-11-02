@@ -1,4 +1,6 @@
 Gamerfinder::Application.routes.draw do
+  get "xbox_gamer_info/new"
+  post "xbox_gamer_info/create"
   devise_for :users
   root 'users#index'
   resources :users
@@ -42,7 +44,7 @@ Gamerfinder::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
