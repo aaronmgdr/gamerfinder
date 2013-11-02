@@ -12,7 +12,7 @@ class XboxGamerInfoController < ApplicationController
         #Stores all retrieved information into xboxprofile variable. This information is dynamic, and will change as frequently as the user interacts with Xbox Live.
     xboxprofile = api.fetch_profile(xboxgamertag)
 
-    XboxGamerInfo.find_or_create_by([
+    XboxGamerInfo.create([
       {
         user_id:          user_id,
         #Accesses hash values from xboxprofile variable, and extracts needed value info. Overwrites and stores info in db
