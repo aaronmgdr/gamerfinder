@@ -1,1 +1,7 @@
-<%= current_user_is_owner? ? render 'my_profile' : render 'auth_profile' %>
+
+
+<% if current_user_is_owner? %>
+  <%= render 'my_profile' %>
+<% else %>
+  <%= render 'auth_profile' %>
+<% end %>

@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
   before_filter :authenticate_user!
   before_filter :get_mailbox, :get_box, :get_actor
-  
+
   def index
     redirect_to conversations_path(:box => @box)
   end
@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
   def new
     @users = User.all
     @receiver_id = params[:receiver]
-    @conversation_id = params[:conversation] || false
+    @conversation_id = params[:conversation]
   end
 
   # GET /messages/1/edit
@@ -42,7 +42,7 @@ class MessagesController < ApplicationController
       @recipients = [User.find(message_params[:_recipient])]
     end
     # determins if this is a new conversation or a reply continuing a conversation
-    if message_params[:conversation].present? 
+    if message_params[:conversation].present?
       @receipt = @actor.reply_to_conversation(Conversation.find(message_params[:conversation]), message_params[:body])
     else
       @receipt = @actor.send_message(@recipients, message_params[:body], message_params[:subject])
