@@ -1,9 +1,8 @@
 Gamerfinder::Application.routes.draw do
-  get "xbox_gamer_info/new"
-  post "xbox_gamer_info/create"
-  devise_for :users
   root 'users#index'
+  devise_for :users
   resources :users
+  resources :xbox_gamer_info
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

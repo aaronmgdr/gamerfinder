@@ -1,18 +1,18 @@
 class XboxGamerInfoController < ApplicationController
   def new
-    @xbox_gamer_info = XboxGamerInfo.new
+    @xbox = XboxGamerInfo.new
   end
 
   def create
     xboxgamertag = params[:xbox_gamertag]
 
-    user_id = current_user
+    user_id = current_user.id
     api = XboxLeaders::Api.new
 
-    #Stores all retrieved information into xboxprofile variable. This information is dynamic, and will change as frequently as the user interacts with Xbox Live.
+        #Stores all retrieved information into xboxprofile variable. This information is dynamic, and will change as frequently as the user interacts with Xbox Live.
     xboxprofile = api.fetch_profile(xboxgamertag)
 
-      xboxgamerinfo = XboxGamerInfo.create([
+    XboxGamerInfo.find_or_create_by([
       {
         user_id:          user_id,
         #Accesses hash values from xboxprofile variable, and extracts needed value info. Overwrites and stores info in db
@@ -22,6 +22,8 @@ class XboxGamerInfoController < ApplicationController
         reputation_score: xboxprofile["reputation"]
       }
     ])
-
+      redirect_to root_path, alert: "Gathering Xbox Info for #{xboxgamertag}"
   end
 end
+
+#should add a an exception to handle if the gamer tag is invaild

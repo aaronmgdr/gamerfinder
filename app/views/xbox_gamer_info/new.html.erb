@@ -2,10 +2,8 @@
 <p>Find me in app/views/xbox_gamer_info/new.html.erb</p>
 
 
-
-
-<form action="create" method="post">
-  <label for="tag">XBOX GAMER TAG:</label>
+<%= form_tag ('/xbox_gamer_info'), method: :post do %>
+  <label for="tag">XBOX GAMER TAG</label>
   <input id="tag" type="text" name="xbox_gamertag">
   <input type="submit" value="Save">
-</form>
+<% end %>
