@@ -57,9 +57,9 @@ users = User.create([
 		password: "password",
 		email: "jesse@jesse.jesse",
 	},
-    { 
-		name: "Clay,
-		password: "password8",
+  {
+		name: "Clay",
+		password: "password",
 		email: "clay@clay.clay",
 	}
 ])

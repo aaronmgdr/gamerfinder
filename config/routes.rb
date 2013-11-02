@@ -10,10 +10,9 @@ Gamerfinder::Application.routes.draw do
       end
     end
   end
-end
 
-  resources :conversations  
-  
+  resources :conversations
+
   resources :messages
-  
+
 end
