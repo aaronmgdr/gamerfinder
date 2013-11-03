@@ -1,17 +1,20 @@
-<h1>Welcome <%= current_user.name %></h1>
-<h3> Who should I game with? </h3>
 
 
-<% current_user.comparisons.order('match_percent').reverse.each do |friendship| %>
+<ul class="small-block-grid-2 large-block-grid-4">
+  <% current_user.comparisons.order('match_percent').reverse.each do |friendship| %>
+    <li>
+      <div class="progress large-8 success">
+        <span class="meter" style="width: <%=friendship.match_percent*100%>%"></span>
+      </div>
+      <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %>
 
-  <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %>
-
-  <%= link_to "Message Gamer", new_message_path(receiver: friendship.compared_user.id) %>
-  <br>
-  <%= friendship.match_percent %>
-  <p>
-    <%="#{Question.find(4).inquiry}?"%>
-    <%=Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %>
-  </p>
-  <hr>
-<% end %>
+      <%= link_to "Message Gamer", new_message_path(receiver: friendship.compared_user.id) %>
+      <br>
+      <%= friendship.match_percent %>
+      <p>
+        <%="#{Question.find(4).inquiry}?"%>
+        <%=Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %>
+      </p>
+    </li>
+  <% end %>
+</ul>
