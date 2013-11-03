@@ -1,20 +1,41 @@
 
+<%if users_unread_message_count > 0 %>
+  <div data-alert class="alert-box large-3 round"> 
+    <%= link_to "You have  #{users_unread_message_count} Unread Messages", conversations_path, :class => 'label'  %>    
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
 
-<ul class="small-block-grid-2 large-block-grid-4">
+<ul class="small-block-grid-1 large-block-grid-3">
   <% current_user.comparisons.order('match_percent').reverse.each do |friendship| %>
     <li>
-      <div class="progress large-8 success">
-        <span class="meter" style="width: <%=friendship.match_percent*100%>%"></span>
-      </div>
-      <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %>
+      <% this_user_id = friendship.compared_user.id %>   
+      <div class="panel">
+        <div class="row">
+          <div class="small-6 large-4 columns">
+            <%if  User.find(this_user_id).xbox_gamer_info.present? %>  
+              <%= image_tag(User.find(this_user_id).xbox_gamer_info.avatar_img_url, size: '100x200') %>
+            <% else %>
+               <%= image_tag "http://blogs.law.harvard.edu/games/files/2008/05/gta4-niko.png", size: '100x200' %>
+            <% end %>
+          </div>
+          <div class="small-6 large-8 columns"> 
+             <%= friendship.match_percent > 0.49 ? "L33t DuD3" : "n00bz"%>
+              <div class="progress large-12 success">
+                <span class="meter" style="width: <%=friendship.match_percent*100%>%"></span><% friendship.match_percent %>
+              </div>
+          
+            <p> Name :
+                <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %> 
+            </p>
 
-      <%= link_to "Message Gamer", new_message_path(receiver: friendship.compared_user.id) %>
-      <br>
-      <%= friendship.match_percent %>
-      <p>
-        <%="#{Question.find(4).inquiry}?"%>
-        <%=Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %>
-      </p>
+              <%="#{Question.find(4).inquiry}?"%>
+              <%=Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %>
+            <div class="tiny secondary button" style="float:right"> <%= link_to "Message Gamer", new_message_path(receiver: friendship.compared_user.id) %>
+            </div>
+          </div>
+        </div>     
+      </div> 
     </li>
   <% end %>
 </ul>
