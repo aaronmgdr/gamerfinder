@@ -30,4 +30,6 @@ Icon
 .Trashes
 
 # Ignor Gemfile Lock
-Gemfile.lockß
+Gemfile.lock
+
+.env
