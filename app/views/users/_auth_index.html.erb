@@ -30,15 +30,28 @@
             <p> Name :
                 <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %> 
             </p>
-
-              <%="#{Question.find(4).inquiry}?"%>
+            <p> <% if friendship.compared_user.xbox_gamer_info.present? %>
+                  <%= "Xbox Live: #{friendship.compared_user.xbox_gamer_info.gamertag}" %> 
+                  <br>
+                  <%= "Reputation: #{friendship.compared_user.xbox_gamer_info.reputation_score}" %>
+                <%end%>
+            </p>
+              TimeZone: 
               <%=Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %>
-            <div class="tiny secondary button" style="float:right"> <%= link_to "Message Gamer", new_message_path(receiver: friendship.compared_user.id) %>
-            </div>
           </div>
-        </div>     
+        </div> 
+        <div class="row">
+          <a href="#" data-reveal-id="myModal" class="button secondary small">Message Gamer</a>  
+        </div>
       </div> 
     </li>
   <% end %>
 </ul>
+
+<div id="myModal" class="reveal-modal">
+  <h2>Awesome. I have it.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
   
