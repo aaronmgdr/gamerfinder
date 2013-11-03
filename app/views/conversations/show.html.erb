@@ -1,13 +1,13 @@
 <%= params %>
-<h3><%= @conversation.subject   %></h3>
+<h3><%= @conversation.subject   %></h3><%= link_to ' Delete Conversation', destroy_path(conversation: @conversation.id), class: "fa fa-trash-o" %>
 
-<div>
+<div class="row">
   <% messages_in_conversation.each do |msg| %>
-    <hr>
-    <p><%= msg.message.sender.name %></p>
-    <p><%= msg.message.body %></p>
+    <div class="small-2 columns"><p><%= msg.message.sender.name %></p></div>
+    <div class="small-10 columns"><p><%= msg.message.body %></p></div>
   <% end %>
 </div>
 
-<br> <i class="fa fa-reply"></i><%= link_to ' Reply', new_message_path(receiver: 1   , conversation: @conversation.id) %>
-<i class="fa fa-trash-o"></i>
+<br> <%= link_to ' Reply', new_message_path(conversation: @conversation.id), class: 'fa fa-reply' %>
+
+
