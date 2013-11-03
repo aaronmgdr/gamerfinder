@@ -1,25 +1,27 @@
-
 <%if users_unread_message_count > 0 %>
-  <div data-alert class="alert-box large-3 round"> 
-    <%= link_to "You have  #{users_unread_message_count} Unread Messages", conversations_path, :class => 'label'  %>    
-    <a href="#" class="close">&times;</a>
+  <div class="row">
+    <div class="large-3 large-centered columns">
+      <div data-alert class="alert-box large-12 round"> 
+        <%= link_to "You have  #{users_unread_message_count} Unread Messages", conversations_path, :class => 'label'  %>    
+        <a href="#" class="close">&times;</a>
+      </div>
+    </div>
   </div>
 <% end %>
-
 <ul class="small-block-grid-1 large-block-grid-3">
   <% current_user.comparisons.order('match_percent').reverse.each do |friendship| %>
     <li>
       <% this_user_id = friendship.compared_user.id %>   
       <div class="panel">
         <div class="row">
-          <div class="small-6 large-4 columns">
+          <div class="small-4 large-4 columns">
             <%if  User.find(this_user_id).xbox_gamer_info.present? %>  
               <%= image_tag(User.find(this_user_id).xbox_gamer_info.avatar_img_url, size: '100x200') %>
             <% else %>
                <%= image_tag "http://blogs.law.harvard.edu/games/files/2008/05/gta4-niko.png", size: '100x200' %>
             <% end %>
           </div>
-          <div class="small-6 large-8 columns"> 
+          <div class="small-8 large-8 columns"> 
              <%= friendship.match_percent > 0.49 ? "L33t DuD3" : "n00bz"%>
               <div class="progress large-12 success">
                 <span class="meter" style="width: <%=friendship.match_percent*100%>%"></span><% friendship.match_percent %>
@@ -39,3 +41,4 @@
     </li>
   <% end %>
 </ul>
+  
