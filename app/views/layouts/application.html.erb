@@ -8,32 +8,90 @@
 <body>
 
 
+<!-- - - - - - - - - MAIN HEADER - - - - - - - - - -->
+  <div class = "topnavigation"> 
+    <div class="row">
+      <div class="navcontainer">
 
+        <div class = "large-8 columns"> 
+            <p>Home</p>
+        </div>
 
-  <div class = "row">
-    <div class = "large-12 columns">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>. Not you?
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-    </div>
-  </div>
-  <div class = "row">
-    <div class = "large-12 columns">
-      <p.notice= notice unless notice.blank?>
-      <p.alert= alert unless alert.blank?>
-      <%= yield %>
-
-
-      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <div class = "large-4 columns">
+          <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path %> or
+            <%= link_to "Sign in", new_user_session_path %>
+          <% end %>
+        </div>
+      </div>
 
     </div>
   </div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - -->
 
-  
 
+<!-- - - - - - - - - RAILS ALERTS - - - - - - - - - -->
+  <div class = "row">
+    <div class = "large-12 columns">
+      <div class = "alerts">
+        <p.notice= notice unless notice.blank?>
+        <p.alert= alert unless alert.blank?>
+      </div>
+    </div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+<!-- - - - - - - - - SECTION 1 MAIN IMAGE - - - - - - - - - -->
+<!-- <ul data-orbit>
+  <li>
+    <img src="/images/gta_orbit_1" />
+    <div class="orbit-caption">
+      
+    </div>
+  </li>
+</ul> -->
+
+
+
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- - - - - - - - - LIST OF PROFILES - - - - - - - - - -->
+  </div>
+  <div class = "row">
+    <div class = "large-12 columns">
+      <div class = "user-profiles">
+
+        <ul class="large-block-grid-4">
+          <li>
+            <%= yield %>
+          </li>
+        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - -->
 </body>
 </html>
