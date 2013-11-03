@@ -61,6 +61,11 @@ users = User.create([
 		name: "Clay",
 		password: "password",
 		email: "clay@clay.clay",
+	},
+	{
+		name: "Matt",
+		password: "password",
+		email: "matt@matt.matt"
 	}
 ])
 

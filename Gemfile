@@ -48,6 +48,7 @@ gem 'devise'
 gem 'haml'
 gem 'xbox_leaders'
 gem 'json'
+gem 'font-awesome-sass'
 
 group :development do
 	gem 'hirb'

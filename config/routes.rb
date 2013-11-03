@@ -3,6 +3,7 @@ Gamerfinder::Application.routes.draw do
   # devise_for :users, :path => 'accounts'
   devise_for :users, :controllers => { :registrations => "registrations" }
   root 'users#index'
+  delete '/conversations/:id', to: 'conversations#destroy', as: 'destroy'
   resources :xbox_gamer_info
   resources :users do
     resources :responses do
