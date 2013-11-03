@@ -1,5 +1,7 @@
 Gamerfinder::Application.routes.draw do
-  devise_for :users, :path => 'accounts'
+  get "registrations_controller/after_sign_up_path_for"
+  # devise_for :users, :path => 'accounts'
+  devise_for :users, :controllers => { :registrations => "registrations" }
   root 'users#index'
   resources :xbox_gamer_info
   resources :users do

@@ -7,3 +7,22 @@
   <input id="tag" type="text" name="xbox_gamertag">
   <input type="submit" value="Save">
 <% end %>
+
+<%= form_tag ("/users/#{current_user.id}/responses/bulk_update"), method: :put do %>
+  <% counter = 0 %>
+  <% @questions.each do |question| %>
+    <li><%= question.inquiry %>
+      <ul>
+        <% question.answers.each do |answer| %>
+          <li><label for="<%=question.id%>"><%=answer.choice%></label>
+
+            <%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>
+          </li>
+        <% end %>
+        <% counter += 1 %>
+      </ul>
+    </li>
+    <input type="hidden" value="<%=params[:user_id]%>">
+  <% end %>
+  <%= submit_tag 'submit' %>
+<% end %>

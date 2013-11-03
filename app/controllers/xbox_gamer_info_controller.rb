@@ -1,6 +1,7 @@
 class XboxGamerInfoController < ApplicationController
   def new
     @xbox = XboxGamerInfo.new
+    @questions = Question.all
   end
 
   def create
