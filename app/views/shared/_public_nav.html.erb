@@ -13,12 +13,10 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li class="divider"></li>
-      <li class="active"><%= link_to 'Mail', conversations_path, class: "fa fa-inbox" %></li>
-      <li class="divider"></li>
-      <li><%= link_to 'Profile', user_path(current_user.id), class: "fa fa-gamepad"%>
+      <li><%= link_to "Sign up", new_user_registration_path %> 
       </li>
       <li class="divider"></li>
-      <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "fa fa-power-off" %></i></a>
+      <li><%= link_to "Sign in", new_user_session_path %></i></a>
       </li>
       <li class="divider hide-for-small"></li>
       <li class="divider show-for-small"></li>
