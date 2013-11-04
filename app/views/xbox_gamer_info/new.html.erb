@@ -1,28 +1,57 @@
-<h1>XboxGamerInfo#new</h1>
-<p>Find me in app/views/xbox_gamer_info/new.html.erb</p>
+<div class="row">
+  <div class="columns small-12 large-8">
+    <h1>Tell us all your Information</h1>
+    <h5><small>dont worry the NSA already has it</small></h5>
 
-
-<%= form_tag ('/xbox_gamer_info'), method: :post, remote: true  do %>
-  <label for="tag">XBOX GAMER TAG</label>
-  <input id="tag" type="text" name="xbox_gamertag">
-  <input type="submit" value="Save">
-<% end %>
-
-<%= form_tag ("/users/#{current_user.id}/responses/bulk_update"), method: :put do %>
-  <% counter = 0 %>
-  <% @questions.each do |question| %>
-    <li><%= question.inquiry %>
-      <ul>
-        <% question.answers.each do |answer| %>
-          <li><label for="<%=question.id%>"><%=answer.choice%></label>
-
-            <%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>
+    <%= form_tag ('/xbox_gamer_info'), method: :post, remote: true  do %>
+      <label for="tag"><h3 class="subheader">Your current Xbox Live Gamer Tag</h3></label>
+      <div class="row">
+        <div class="large-8 small-7 columns">
+          <input id="tag" type="text" name="xbox_gamertag">
+        </div>
+        <div class="large-3 small-4 columns">
+          <input type="submit" value="Lookup" id="xbox-get" class="button postfix secondary">
+        </div>
+         <div class='large-1 small-1 columns'>
+          
+        </div> 
+        
+      </div>
+      <div class="row">
+        <div class="columns large-10"> 
+          <span class="pending invisible">
+            <i class="fa fa-refresh fa-spin"></i>
+          </span>
+          <span id="goede" class="alert-box radius invisible">Successfully fetched Gamer Tag information
+          </span>
+      </div>
+      </div>
+    <% end %> 
+      <!-- <span class="alert-box alert">Invalid XBOX Live</span> -->
+  </div>
+</div>
+<div class="row">
+  <div class="columns small-12">
+    <ul class="no-bullet" >
+      <%= form_tag ("/users/#{current_user.id}/responses/bulk_update"), method: :put do %>
+        <% counter = 0 %>
+        <% @questions.each do |question| %>
+          <li><h3 class="subheader"><%= question.inquiry %>?</h3>
+            <ul class="inline-list">
+              <% question.answers.each do |answer| %>
+                <li>
+                  <label for="<%=question.id%>"><%=answer.choice%>
+                  </label>
+                  <%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>
+                </li>
+              <% end %>
+              <% counter += 1 %>
+            </ul>
           </li>
+          <input type="hidden" value="<%=params[:user_id]%>">
         <% end %>
-        <% counter += 1 %>
-      </ul>
-    </li>
-    <input type="hidden" value="<%=params[:user_id]%>">
-  <% end %>
-  <%= submit_tag 'submit' %>
-<% end %>
+        <%= submit_tag 'submit', class: "button secondary" %>
+      <% end %>
+    </ul>
+  </div>
+</div>

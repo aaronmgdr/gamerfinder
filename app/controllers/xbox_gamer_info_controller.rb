@@ -13,6 +13,7 @@ class XboxGamerInfoController < ApplicationController
         #Stores all retrieved information into xboxprofile variable. This information is dynamic, and will change as frequently as the user interacts with Xbox Live.
     xboxprofile = api.fetch_profile(xboxgamertag)
 
+  
     XboxGamerInfo.create([
       {
         user_id:          user_id,
@@ -23,7 +24,11 @@ class XboxGamerInfoController < ApplicationController
         reputation_score: xboxprofile["reputation"]
       }
     ])
-      redirect_to root_path, alert: "Gathering Xbox Info for #{xboxgamertag}"
+    respond_to do |format| 
+      format.js { render layout: false }
+      format.html {redirect_to root_path, alert: "Gathered Xbox Info for #{xboxgamertag}" }
+    end
+      #redirect_to root_path, alert: "Gathering Xbox Info for #{xboxgamertag}"
   end
 end
 
