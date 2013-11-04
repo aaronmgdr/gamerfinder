@@ -1,20 +1,98 @@
-<ul class="large-block-grid-4">
-  <% @users.each do |gamer| %>
-    <li>
-      <div class="panel">
-        <div class="row">
-          <div class="small-4 large-4 columns">
-            <%= image_tag "userplaceholder.png", size: '100x200' %>
-          </div>
+<div class = "hero-divider"><p></p></div>
 
-          <div class="small-8 large-8 columns"> 
-            <h3><%= link_to gamer.name, user_path(gamer.id) %> </h3>
-            <p> 
-              <%="#{Question.find(2).inquiry}: #{Question.find(2).responses.find_by_user_id(gamer.id).answer.choice}" %> 
-            </p>
-          </div>
-        </div>     
-      </div> 
-    </li>
-  <% end %>
-</ul>
+<div class = "hero0">
+  <div class = "hero-copy">
+    <div class = "row">
+      <div class = "large-12 columns">
+        <h1> Features and or  Benefits </h1>
+      </div>    
+    </div>
+  </div>
+</div>
+
+<div class = "hero-divider"><p></p></div>
+
+
+<div class = "hero1">
+  <div class = "hero-copy">
+    <div class = "row">
+      <div class = "large-12 columns">
+        <h1> Features & Benefits </h1>
+      </div>    
+    </div>
+  </div>
+</div>
+
+<div class = "hero-divider"><p></p></div>
+
+
+
+
+<!-- - - - - - - - ORBIT IMAGE SLIDER - - -  - - - - - -->
+<!-- <div class = "row">
+  <div class = "large-12 columns">   
+    <ul data-orbit>
+      <li>
+        <img src="assets/1.jpg" />
+        <div class="orbit-caption">
+          <h5>It sucks playing with jerks</h5>
+          <p>Mayhem is fun.  We know it and you know it. What's more fun? Group mayhem!</p> 
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/2.jpg" />
+        <div class="orbit-caption">
+          Artisan Tonx actually farm-to-table, irony YOLO cliche readymade banjo keytar Vice twee. Tattooed Banksy Austin, wayfarers Portland asymmetrical Terry Richardson blog scenester gastropub food truck. 
+        </div>
+      </li>
+
+      <li>
+        <img src="assets/3.jpg" />
+        <div class="orbit-caption">
+          Artisan Tonx actually farm-to-table, irony YOLO cliche readymade banjo keytar Vice twee. Tattooed Banksy Austin, wayfarers Portland asymmetrical Terry Richardson blog scenester gastropub food truck. 
+        </div>
+      </li>
+    </ul>
+  </div>
+</div> -->
+<!-- _______________________________________________ -->
+
+
+
+
+
+<!-- - - - - - - - USER INFO GRID - - - - - - - - -->
+
+
+<div class ="row">
+  <div class = "large-12 columns">
+    <div class = "hero-99">
+      <h2> Newest Members of Our Community </h2>
+    </div>
+
+
+    <ul class="large-block-grid-2">
+      <% @users.each do |gamer| %>
+        <li>
+          <div class="panel-public">
+            <div class="row">
+              <div class="small-4 large-4 columns">
+                <%= image_tag "userplaceholder.png", size: '100x200' %>
+              </div>
+
+              <div class="small-8 large-8 columns"> 
+                <h5><%= link_to gamer.name, user_path(gamer.id) %> </h5>
+                <p> 
+                  <%="#{Question.find(2).inquiry}: #{Question.find(2).responses.find_by_user_id(gamer.id).answer.choice}" %> 
+                </p>
+              </div>
+            </div>     
+          </div> 
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- _______________________________________________ -->

@@ -12,18 +12,94 @@
 
  *= require normalize
  *= require foundation_and_overrides
+ *= require foundation
  *= require_self
  *= require users
 
  */
 
 
-body {
-/*  background-image:url('gta_header1.jpg');*/
+
+.hero-copy{
   background-color: white;
-  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, .6);
+}
+
+ h1 {
+  font-family: Arial, sans-serif;
+}
+
+.hero-divider {
+  margin-top:5px;
+  margin-bottom:5px;
+  width: 100%;
+  background-color: white;
+  background-color: rgba(105, 155, 55, .9);
+
+}
+/* - - - - - - - - - - - - - - - - - - - - - */
+
+.hero0, .hero1 {
+  text-align: center;
+  height: 200px;
+  width: 100%;
+  background-color: white;
+  background-color: rgba(255, 255, 255, .9);
+
+}
+
+.hero0, .hero1 h1 {
+  color: black;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - */
+
+.hero-99 {
+text-align: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, .9);
+  background-size: cover;
   background-position: center center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.hero-99 h2 {
+  color: gray;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  font-family: sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - */
+
+
+body {
+/*  background-image:url('whitediamond.png');
+  background-position: center center;
+  background-attachment: fixed;*/
+
+  background-image:url('Home_NL/sky_scenery.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+
+
 }
 
 
@@ -32,8 +108,12 @@ body {
   border-style: solid;
   border-width: 2px;
   background-color: white;
-/*  background-color: rgba(255, 255, 255, .9);
-  color: black;*/
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  margin-bottom: 40px;
+  background-color: rgba(255, 255, 255, 1);
+  color: black;
 }
 
 
@@ -45,12 +125,17 @@ body {
 }
 
 
-.hero-images {
-  height: 400px;
-}
 
-.panel {
+
+/*- - - - - - - - - - For User Layout - - - - - - - - -*/
+.panel, .panel-public {
 
   border-radius: 5px;
   background-color: rgba(255, 255, 255, .8);
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+.spacer {
+  height: 50px;
 }
