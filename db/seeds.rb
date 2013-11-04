@@ -69,6 +69,27 @@ users = User.create([
 	}
 ])
 
+XboxGamerInfo.create([
+	{
+		gamertag: "daft star"
+	},
+	{
+		gamertag: "metasplat"
+	},
+	{
+		gamertag: "anthror"
+	},
+	{
+		gamertag: "AlCapwn715"
+	},
+	{
+		gamertag: "Clamstew"
+	},
+	{
+		gamertag: "walkersmith07"
+	}
+])
+
 
 Question.first.answers.create(choice: "morning")
 Question.first.answers.create(choice: "afternoon")
@@ -92,7 +113,7 @@ users.each do |user|
     {user: user, answer: Answer.find(Random.rand(1..3))},
     {user: user, answer: Answer.find(Random.rand(4..6))},
     {user: user, answer: Answer.find(Random.rand(7..9))},
-    {user: user, answer: Answer.find(Random.rand(10..12))}
+    {user: user, answer: Answer.find(Random.rand(10..12))},
   ])
 end
 
