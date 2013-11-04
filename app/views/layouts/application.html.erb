@@ -4,6 +4,8 @@
   <title>Gamerfinder</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <script src="/js/custom.modernizr.js"></script>
 </head>
 <body>
 
@@ -41,57 +43,46 @@
         <p.alert= alert unless alert.blank?>
       </div>
     </div>
+  </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
 <!-- - - - - - - - - SECTION 1 MAIN IMAGE - - - - - - - - - -->
-<!-- <ul data-orbit>
-  <li>
-    <img src="/images/gta_orbit_1" />
-    <div class="orbit-caption">
-      
+
+  <div class = "row">
+    <div class = "large-12 columns">
+      <div class = "hero-images">
+        <ul data-orbit>
+          <li>
+            <img src="/gta_orbit_1.jpg" />
+            <div class="orbit-caption">
+              Here is some wonderful text. Here is some wonderful text. Here is some wonderful text. Here is some wonderful text.Here is some wonderful text. Here is some wonderful text.Here is some wonderful text. Here is some wonderful text.Here is some wonderful text. Here is some wonderful text.Here is some wonderful text. Here is some wonderful text.Here is some wonderful text. Here is some wonderful text.Here is some wonderful text. Here is some wonderful text.Here is some wonderful text. Here is some wonderful text.Here is some wonderful text. Here is some wonderful text.
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </li>
-</ul> -->
-
-
-
-
-
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
 
 
 
 
 
 <!-- - - - - - - - - LIST OF PROFILES - - - - - - - - - -->
-  </div>
-  <div class = "row">
-    <div class = "large-12 columns">
-      <div class = "user-profiles">
 
-        <ul class="large-block-grid-4">
-          <li>
-            <%= yield %>
-          </li>
-        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-        </ul>
-      </div>
-    </div>
+
+<div class = "row">
+  <div class = "large-12 columns">   
+    <%= yield %>
   </div>
+</div>
+
+
+        
+
+
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>
