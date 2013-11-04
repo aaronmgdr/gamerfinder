@@ -18,7 +18,7 @@
             <%if  User.find(this_user_id).xbox_gamer_info.present? %>  
               <%= image_tag(User.find(this_user_id).xbox_gamer_info.avatar_img_url, size: '100x200') %>
             <% else %>
-               <%= image_tag "http://blogs.law.harvard.edu/games/files/2008/05/gta4-niko.png", size: '100x200' %>
+               <%= image_tag "userplaceholder.png", size: '100x200' %>
             <% end %>
           </div>
           <div class="small-8 large-8 columns"> 

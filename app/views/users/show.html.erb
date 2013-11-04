@@ -1,16 +1,35 @@
-<h1><%=@user.name %></h1>
+
+<div class = "row">
+  <div class = "large-12 columns">
+    <!-- <h1><%=@user.name %></h1> -->
 
 
-<% if current_user_is_owner? %>
-  <%= render 'my_profile' %>
-<% else %>
-  <%= render 'auth_profile' %>
-<% end %>
-<div class= "MyAnswers">
-  <dl> <h3>My Answers</h3>
-    <% Question.all.each do |question| %>
-      <dt><%= question.inquiry %> </dt>
-      <dd><%= question.responses.find_by_user_id(params[:id]).answer.choice %></dd>
+    <% if current_user_is_owner? %>
+      <%= render 'my_profile' %>
+    <% else %>
+      <%= render 'auth_profile' %>
     <% end %>
-  </dl>
+
+
+    <div class="my-answers">
+      <h2 class="subheader"><%=@user.name %>'s Answers</h2><hr>
+        <% Question.all.each do |question| %>
+          <h3 class="subheader">
+            <%= question.inquiry %>
+          </h3>
+
+          <h5 class="subheader">
+
+              - <%= question.responses.find_by_user_id(params[:id]).answer.choice %>
+
+          </h5>
+        <% end %>
+    </div>
+
+
+  </div>
 </div>
+
+
+
+
