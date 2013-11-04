@@ -25,57 +25,60 @@
       <% this_user_id = friendship.compared_user.id %>  
         <!-- - - - - - - - - - - - - - LOGGED IN USER INFO CARD - - - - - - - - - - - -->
         <li>
-          <div class="panel">
+          <div class="logged-in-panel">
+            <div class="panel-container">
           <!-- - - - - - - - - - - - user graphic + match% bar - - - - - - - -->
-            <div class="row">
-              <div class="large-4 columns">
-                <%if  User.find(this_user_id).xbox_gamer_info.present? %>  
-                  <%= image_tag(User.find(this_user_id).xbox_gamer_info.avatar_img_url, size: '100x200') %>
-                <% else %>
-                   <%= image_tag "userplaceholder.png", size: '100x200' %>
-                <% end %>
-              </div>
+              <div class="row">
+                <div class="large-4 columns">
+                  <%if  User.find(this_user_id).xbox_gamer_info.present? %>  
+                    <%= image_tag(User.find(this_user_id).xbox_gamer_info.avatar_img_url, size: '100x200') %>
+                  <% else %>
+                     <%= image_tag "userplaceholder.png", size: '100x200' %>
+                  <% end %>
+                </div>
 
-              <div class="large-8 columns"> 
-                <%= friendship.match_percent > 0.49 ? "Great Match" : "Feeling lucky?"%>
-                <div class="progress large-12 success">
-                  <span class="meter" style="width: <%=friendship.match_percent*100%>%"></span>
-                  <% friendship.match_percent %>
+                <div class="large-8 columns"> 
+                  <%= friendship.match_percent > 0.49 ? "Great Match" : "Feeling lucky?"%>
+                  <div class="progress large-12 success">
+                    <span class="meter" style="width: <%=friendship.match_percent*100%>%"></span>
+                    <% friendship.match_percent %>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- - - - - - - - - - - - user name row + gamer tag + gamer reputation - - - - - - - -->
-            <div class = "row">
-              <div class = "large-12 columns">
-                <hr>
-                <p> Name: <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %></p>
-                <p> 
-                  <% if friendship.compared_user.xbox_gamer_info.present? %>
-                    <%= "Xbox Live: #{friendship.compared_user.xbox_gamer_info.gamertag}" %> 
-                    <br>
-                    <%= "Reputation: #{friendship.compared_user.xbox_gamer_info.reputation_score}" %>
-                  <%end%>
-                </p>
+              <!-- - - - - - - - - - - - user name row + gamer tag + gamer reputation - - - - - - - -->
+              <div class = "row">
+                <div class = "large-12 columns">
+                  <hr>
+                  <p> Name: <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %></p>
+                  <a href="#" data-reveal-id="myModal" class="button secondary small">Message Gamer</a>
+                  <p> 
+                    <% if friendship.compared_user.xbox_gamer_info.present? %>
+                      <%= "Xbox Live: #{friendship.compared_user.xbox_gamer_info.gamertag}" %> 
+                      <br>
+                      <%= "Reputation: #{friendship.compared_user.xbox_gamer_info.reputation_score}" %>
+                    <%end%>
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <!-- - - - - - - - - - - TIMEZONE ROW - - - - - - - - - - -->
-            <div class="row">
-              <div class = "large-12 columns">
-                <hr>
-                TimeZone: <%=Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %>
+              <!-- - - - - - - - - - - TIMEZONE ROW - - - - - - - - - - -->
+              <div class="row">
+                <div class = "large-12 columns">
+                  <hr>
+                  TimeZone: <%=Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %>
+                </div>
               </div>
-            </div>
-            
-            <!-- - - - - - - - - MESSAGE ME ROW - - - - - - - - - -  -->
-            <div class="row">
-              <div class = "large-12 columns">
-                <hr>
-                <a href="#" data-reveal-id="myModal" class="button secondary small" style="float:right">Message Gamer</a>
+              
+              <!-- - - - - - - - - MESSAGE ME ROW - - - - - - - - - -  -->
+              <div class="row">
+                <div class = "large-12 columns">
+                  <hr>
+                  <!-- <a href="#" data-reveal-id="myModal" class="button secondary small">Message Gamer</a> -->
+                </div>
               </div>
+              <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
             </div>
-            <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
           </div> 
         </li>
       <% end %>

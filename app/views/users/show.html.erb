@@ -1,18 +1,21 @@
 
 <div class = "row">
-  <div class = "large-12 columns">
-    <!-- <h1><%=@user.name %></h1> -->
+  <!-- - - - - - - - My Matches - - - - - - - -->
+  <div class = "large-4 columns">
+    <div class = "my-matches">
+      <% if current_user_is_owner? %>
+        <%= render 'my_profile' %>
+      <% else %>
+        <%= render 'auth_profile' %>
+      <% end %>
+    </div>
+  </div>
 
-
-    <% if current_user_is_owner? %>
-      <%= render 'my_profile' %>
-    <% else %>
-      <%= render 'auth_profile' %>
-    <% end %>
-
-
+  <!-- - - - - - - - My Answers - - - - - - - -->
+  <div class = "large-8 columns">
     <div class="my-answers">
       <h2 class="subheader"><%=@user.name %>'s Answers</h2><hr>
+
         <% Question.all.each do |question| %>
           <h3 class="subheader">
             <%= question.inquiry %>
@@ -24,11 +27,9 @@
 
           </h5>
         <% end %>
+    </div>    
     </div>
-
-
   </div>
-</div>
 
 
 

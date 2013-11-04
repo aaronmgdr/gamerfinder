@@ -7,6 +7,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
+  
 <!-- - - - - - - - - MAIN HEADER - - - - - - - - - -->
 
   <% if user_signed_in? %> 
@@ -14,11 +15,6 @@
   <% else %> 
      <%= render :partial => 'shared/public_nav' %>
   <% end %>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - --> 
-
-
-
-
 
 <!-- - - - - - - - - RAILS ALERTS - - - - - - - - - -->
   <div class = "row">
@@ -29,23 +25,17 @@
       </div>
     </div>
   </div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
-
-
 
 
 <!-- - - - - - - - - - - MAIN LOAD- - - - - - - - - - - - - -->
 
 <%= yield %>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-
-        
-
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+
+
 </body>
 </html>
