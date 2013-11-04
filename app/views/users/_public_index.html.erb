@@ -96,7 +96,9 @@
               <div class="small-8 large-8 columns"> 
                 <h5><%= link_to gamer.name, user_path(gamer.id) %> </h5>
                 <p> 
-                  <%="#{Question.find(2).inquiry}: #{Question.find(2).responses.find_by_user_id(gamer.id).answer.choice}" %> 
+                  <%if Question.find(2).responses.find_by_user_id(gamer.id).present? %>
+                    <%= "#{Question.find(2).inquiry}: #{Question.find(2).responses.find_by_user_id(gamer.id).answer.choice}" %> 
+                    <% end %>
                 </p>
               </div>
             </div>     
