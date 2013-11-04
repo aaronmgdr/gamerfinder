@@ -1,11 +1,10 @@
-<%= params %>
 <h3><%= @conversation.subject   %></h3>
 
-<div>
+<div class="row">
   <% messages_in_conversation.each do |msg| %>
     <hr>
-    <p><%= msg.message.sender.name %></p>
-    <p><%= msg.message.body %></p>
+    <div class="small-3 columns"><p><%= msg.message.sender.name %></p></div>
+    <div class="small-9 columns"><p><%= msg.message.body %></p></div>
   <% end %>
 </div>
 
