@@ -15,7 +15,8 @@
  *= require foundation
  *= require_self
  *= require users
-
+ *= require conversations
+ *= require responsive-tables
  */
 
 /* - - - - - GLOBAL + HTML + BODY - - - - - */
