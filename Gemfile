@@ -6,19 +6,6 @@ gem 'rails', '4.0.0'
 # Use postgres as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-#Use Foundation for base html css
-gem 'compass' # you need this or you get an err
-gem 'zurb-foundation', '~> 4.0.0'
-
 gem 'simple_form'
 
 # for in app messaging between users
@@ -63,6 +50,25 @@ group :development, :test do
 	gem 'rspec'
 	gem 'rspec-rails'
 end
+
+
+
+#foundation assets pipeline relevant gems
+
+# Per foundation instructions, grouped together these gems into assets
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Add Foundation Here
+#Use Foundation for base html css
+gem 'compass' # you need this or you get an err
+gem 'compass-rails' # you need this or you get an err
+gem 'zurb-foundation', '~> 4.0.0'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
