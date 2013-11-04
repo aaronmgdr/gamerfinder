@@ -41,7 +41,7 @@
               <% end %>
           </td>
           <td><%= link_to '', new_message_path(receiver: 1, conversation: conversation.id), class: 'fa fa-reply' %></td>
-          <td><i class="fa fa-trash-o"></i></td>
+          <td><%= link_to 'trash', "conversations/#{conversation.id}", class: 'fa fa-trash-o', method: :delete %></td>
         </tr>
       <% end %>
     <%end%>
