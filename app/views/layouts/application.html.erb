@@ -8,7 +8,7 @@
 </head>
 <body>
   <!--<%# for testing purposes only. should be an if statement %>-->
-  <% unless user_signed_in? %> 
+  <% if user_signed_in? %> 
     <%= render :partial => 'shared/nav' %>
   <% else %> 
     <%= link_to "Sign up", new_user_registration_path %> or
