@@ -64,6 +64,15 @@ body {
   box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
 }
 
+.hero-action{
+  background-color: white;
+  background-color: rgba(255, 255, 255, .4);
+  text-align:center;
+  -webkit-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
+  -moz-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);  
+  box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
+}
+
 
 .hero-graphic-1 {
   background-image:url('Home_NL/sky_scenery.jpg');
@@ -71,7 +80,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 600px;
 }
 
 .hero-graphic-2 {
@@ -80,7 +89,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 600px;
 }
 
 .hero-graphic-3 {
@@ -89,7 +98,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 600px;
 }
 
 
