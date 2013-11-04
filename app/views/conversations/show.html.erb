@@ -1,4 +1,5 @@
-<div><h3 class='subheader'><%= @conversation.subject   %></h3></div>
+<%= params %>
+<h3><%= @conversation.subject   %></h3>
 
 <div class="row">
   <% messages_in_conversation.each do |msg| %>
@@ -10,5 +11,6 @@
   <% end %>
 </div>
 
-<br> <i class="fa fa-reply"><%= link_to 'Reply', new_message_path(receiver: 1   , conversation: @conversation.id) %></i>
-<i class="fa fa-trash-o"></i>
+<br> <%= link_to ' Reply', new_message_path(conversation: @conversation.id), class: 'fa fa-reply' %>
+
+

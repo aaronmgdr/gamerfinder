@@ -1,7 +1,7 @@
 module ConversationsHelper
   def other_box
     case @box
-      
+
     when 'inbox'
       'sentbox'
     when 'sentbox'
@@ -14,4 +14,5 @@ module ConversationsHelper
   def messages_in_conversation
     @conversation.receipts_for(current_user)
   end
+
 end

@@ -1,4 +1,12 @@
 Gamerfinder::Application.routes.draw do
+<<<<<<< HEAD
+=======
+  get "message/snippet"
+  get "registrations_controller/after_sign_up_path_for"
+  delete "conversations/:id", to: "conversations#destroy", as: "destroy"
+  # devise_for :users, :path => 'accounts'
+  devise_for :users, :controllers => { :registrations => "registrations" }
+>>>>>>> conversations-front-end
   root 'users#index'
   get "registrations_controller/after_sign_up_path_for"
   devise_for :users, :controllers => { :registrations => "registrations" }, :path => 'accounts'
