@@ -7,13 +7,7 @@
         <h3><%=@box.capitalize%></h3>
       </div>
       <div class="columns large-8 small-8"> 
-        <dl class="sub-nav">
-        <!-- <dt></dt> -->
-          <dd><%= link_to 'Compose', new_message_path %></dd>
-          <dd><%= link_to 'Inbox', conversations_path + "?box=inbox" %></dd>
-          <dd><%= link_to 'Sentbox', conversations_path + "?box=sentbox" %></dd>
-          <dd><%= link_to 'Trash', conversations_path + "?box=trash" %></dd>
-        </dl>
+        <%= render 'shared/msg_nav'%>
       </div>
     </div>
   </div>

@@ -1,21 +1,25 @@
 <div class="row">
-  <%= simple_form_for :messages, :url => "/messages" do |f| %>
-    
-    <% if @receiver_id == nil %>
-      <%= f.select(:_recipient, @users.collect {|u| [ u.name, u.id ] }) %>
-    <% else %>
-      <%= "Sending Message to #{User.find(@receiver_id).name}"%>
-      <%= link_to "Change", new_message_path %>
-      <%= f.hidden_field :_recipient, required: true, value: @receiver_id %> 
-    <% end %>
-    
-    <%if @conversation_id.present? %>
-      <%= f.hidden_field :conversation, value: @conversation_id %>
-    <%else %>
-      <%= f.input :subject, placeholder: 'Wanna Game?', required: true%>
-    <%end%>
+  <div class="columns large-10 small-12">
+    <%= render 'shared/msg_nav'%>
 
-    <%= f.input :body, placeholder: 'write here', required: true, :as => :text%> 
-    <%= f.button :submit, :value => "send message" %>
-  <% end %>
+    <%= simple_form_for :messages, :url => "/messages" do |f| %>
+      
+      <% if @receiver_id == nil %>
+        <%= f.select(:_recipient, @users.collect {|u| [ u.name, u.id ] }) %>
+      <% else %>
+        <%= "Sending Message to #{User.find(@receiver_id).name}"%>
+        <%= link_to "Change", new_message_path %>
+        <%= f.hidden_field :_recipient, required: true, value: @receiver_id %> 
+      <% end %>
+      
+      <%if @conversation_id.present? %>
+        <%= f.hidden_field :conversation, value: @conversation_id %>
+      <%else %>
+        <%= f.input :subject, placeholder: 'Wanna Game?', required: true%>
+      <%end%>
+
+      <%= f.input :body, placeholder: 'write here', required: true, :as => :text%> 
+      <%= f.button :submit, :value => "send message" %>
+    <% end %>
+  </div>
 </div>
