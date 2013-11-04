@@ -1,8 +1,11 @@
 
+<nav class="breadcrumbs">
+  <li><%= link_to 'Inbox', conversations_path + "?box=inbox" %></li>
+  <li><%= link_to 'Sentbox', conversations_path + "?box=sentbox" %></li>
+  <li><%= link_to 'Trash', conversations_path + "?box=trash" %></li>
+</nav>
 
-<div> <%= link_to other_box.capitalize, conversations_path + "?box=#{other_box}" %> </div>
-
-<h1><%=@box.capitalize%></h1> 
+<h1><%=@box.capitalize%></h1>
 <table>
   <thead>
     <tr>
@@ -10,6 +13,8 @@
       <th>Subject</th>
       <th>Preview</th>
       <th>Status</th>
+      <th>Reply</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tfoot>
@@ -18,6 +23,8 @@
       <td>Subject</td>
       <td>Preview</td>
       <td>Status</td>
+      <td>Reply</td>
+      <td>Delete</td>
     </tr>
   </tfoot>
   <tbody>
@@ -27,7 +34,7 @@
           <tr>
             <td><%= receipt.message.sender.name %> </td>
             <td><%= receipt.message.subject%></td>
-            <td><%=link_to receipt.message.body, conversation_path(conversation.id)%>
+            <td><%=link_to receipt.message.body.truncate(50), conversation_path(conversation.id)%>
             </td>
             <td>
               <% if receipt.is_unread? or receipt.message.is_unread?(current_user) %>
@@ -36,6 +43,8 @@
                 <%= "Opened" %>
               <% end %>
           </td>
+          <td><%= link_to '', new_message_path(receiver: 1, conversation: conversation.id), class: 'fa fa-reply' %></td>
+          <td><%= link_to '', "conversations/#{conversation.id}", class: 'fa fa-trash-o', method: :delete %></td>
         </tr>
       <% end %>
     <%end%>

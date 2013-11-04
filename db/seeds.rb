@@ -13,11 +13,33 @@ Question.create([
 	{inquiry: 'What time zone'}
 ])
 
+XboxGamerInfo.create([
+	{
+		gamertag: "daft star"
+	},
+	{
+		gamertag: "metasplat"
+	},
+	{
+		gamertag: "anthror"
+	},
+	{
+		gamertag: "AlCapwn715"
+	},
+	{
+		gamertag: "Clamstew"
+	},
+	{
+		gamertag: "walkersmith07"
+	}
+])
+
 users = User.create([
 	{
 		name: "MikeFTW",
 		password: "password",
 		email: "mike@mike.mike",
+		xbox_gamer_info: XboxGamerInfo.find(3)
 	},
 	{
 		name: "xXx_dasFremenator_xXx",
@@ -29,11 +51,14 @@ users = User.create([
 		name: "Daftstar",
 		password: "password",
 		email: "nik@nik.nik",
+		xbox_gamer_info: XboxGamerInfo.find(1)
 	},
 	{
-		name: "Yasmin",
+		name: "Gamble",
 		password: "password",
-		email: "yaz@yaz.yaz",
+		email: "gamble@gamble.gamble",
+		xbox_gamer_info: XboxGamerInfo.find(4)
+
 
 	},
 	{
@@ -42,9 +67,9 @@ users = User.create([
 		email: "lynda@lynda.lynda",
 	},
 	{
-		name: "Greg",
+		name: "Ami",
 		password: "password",
-		email: "greg@greg.greg",
+		email: "ami@ami.ami",
 	},
 	{
 		name: "Joe",
@@ -53,19 +78,22 @@ users = User.create([
 
 	},
 	{
-		name: "Jesse",
+		name: "Taylor",
 		password: "password",
-		email: "jesse@jesse.jesse",
+		email: "taylor@taylor.taylor",
+		xbox_gamer_info: XboxGamerInfo.find(6)
 	},
   {
 		name: "Clay",
 		password: "password",
 		email: "clay@clay.clay",
+		xbox_gamer_info: XboxGamerInfo.find(5)
 	},
 	{
 		name: "Matt",
 		password: "password",
-		email: "matt@matt.matt"
+		email: "matt@matt.matt",
+		xbox_gamer_info: XboxGamerInfo.find(2)
 	}
 ])
 
@@ -92,11 +120,9 @@ users.each do |user|
     {user: user, answer: Answer.find(Random.rand(1..3))},
     {user: user, answer: Answer.find(Random.rand(4..6))},
     {user: user, answer: Answer.find(Random.rand(7..9))},
-    {user: user, answer: Answer.find(Random.rand(10..12))}
+    {user: user, answer: Answer.find(Random.rand(10..12))},
   ])
 end
-
-
 
 Comparison.quick_populate
 
