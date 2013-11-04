@@ -1,6 +1,9 @@
 
-
-<div> <%= link_to other_box.capitalize, conversations_path + "?box=#{other_box}" %> </div>
+<nav class="breadcrumbs">
+  <li><%= link_to 'Inbox', conversations_path + "?box=inbox" %></li>
+  <li><%= link_to 'Sentbox', conversations_path + "?box=sentbox" %></li>
+  <li><%= link_to 'Trash', conversations_path + "?box=trash" %></li>
+</nav>
 
 <h1><%=@box.capitalize%></h1>
 <table>
@@ -41,7 +44,7 @@
               <% end %>
           </td>
           <td><%= link_to '', new_message_path(receiver: 1, conversation: conversation.id), class: 'fa fa-reply' %></td>
-          <td><%= link_to 'trash', "conversations/#{conversation.id}", class: 'fa fa-trash-o', method: :delete %></td>
+          <td><%= link_to '', "conversations/#{conversation.id}", class: 'fa fa-trash-o', method: :delete %></td>
         </tr>
       <% end %>
     <%end%>
