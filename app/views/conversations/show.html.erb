@@ -1,5 +1,5 @@
 <%= params %>
-<h3><%= @conversation.subject   %></h3><%= link_to ' Delete Conversation', destroy_path(conversation: @conversation.id), class: "fa fa-trash-o" %>
+<h3><%= @conversation.subject   %></h3>
 
 <div class="row">
   <% messages_in_conversation.each do |msg| %>
