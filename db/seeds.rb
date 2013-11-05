@@ -31,6 +31,12 @@ XboxGamerInfo.create([
 	},
 	{
 		gamertag: "walkersmith07"
+	},
+	{
+		gamertag: "ramariel"
+	},
+	{
+		gamertag: "praisethecow33"
 	}
 ])
 
@@ -94,6 +100,18 @@ users = User.create([
 		password: "password",
 		email: "matt@matt.matt",
 		xbox_gamer_info: XboxGamerInfo.find(2)
+	},
+	{
+		name: "Christina",
+		password: "password",
+		email: "chris@chris.chris",
+		xbox_gamer_info: XboxGamerInfo.find(7)
+	},
+	{
+		name: "Ravi",
+		password: "password",
+		email: "ravi@ravi.ravi",
+		xbox_gamer_info: XboxGamerInfo.find(8)
 	}
 ])
 
