@@ -69,7 +69,7 @@ gem 'compass' # you need this or you get an err
 gem 'compass-rails' # you need this or you get an err
 gem 'zurb-foundation', '~> 4.0.0'
 
-
+gem 'rails_12factor'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
