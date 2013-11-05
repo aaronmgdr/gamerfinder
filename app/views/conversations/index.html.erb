@@ -1,16 +1,15 @@
 
 
 <div class="row">
-  <div class="columns large-6 small-12">
-    <div class="row">
-      <div class="columns large-4 small-4">
-        <h3><%=@box.capitalize%></h3>
-      </div>
-      <div class="columns large-8 small-8"> 
-        <%= render 'shared/msg_nav'%>
-      </div>
-    </div>
+  <div class="columns large-6 small-2">
+    <h3><%=@box.capitalize%></h3>
   </div>
+  <div class="columns large-6 small-10">
+  <%= render 'shared/msg_nav'%>
+  </div>
+</div>
+<div class="row">
+  <div class="columns large-12 small-12">
     <table class="responsive">
       <thead>
         <tr>
@@ -37,7 +36,7 @@
           <% receipts = conversation.receipts_for(current_user) %>
             <% receipts.each do |receipt| %>
               <tr>
-                <td><%= receipt.message.sender.name %> </td>
+                <td><%= link_to receipt.message.sender.name, user_path(receipt.message.sender.id)  %> </td>
                 <td><%= receipt.message.subject%></td>
                 <td><%=link_to receipt.message.body.truncate(50), conversation_path(conversation.id)%>
                 </td>
@@ -57,5 +56,7 @@
         <%end%>
       </tbody>
     </table>
-  </div> 
+  </div>
 </div>
+
+
