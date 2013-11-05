@@ -143,8 +143,7 @@ text-align: center;
 
 .logged-in-panel {
   /*Keeping these out of global just in case we need customization*/
-  min-height: 400px;
-  max-height:400px;
+  height: 600px;
 }
 
 .panel-container {
