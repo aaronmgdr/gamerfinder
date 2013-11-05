@@ -1,52 +1,59 @@
 
-<nav class="breadcrumbs">
-  <li><%= link_to 'Inbox', conversations_path + "?box=inbox" %></li>
-  <li><%= link_to 'Sentbox', conversations_path + "?box=sentbox" %></li>
-  <li><%= link_to 'Trash', conversations_path + "?box=trash" %></li>
-</nav>
 
-<h1><%=@box.capitalize%></h1>
-<table>
-  <thead>
-    <tr>
-      <th>Sender</th>
-      <th>Subject</th>
-      <th>Preview</th>
-      <th>Status</th>
-      <th>Reply</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-      <td>Sender</td>
-      <td>Subject</td>
-      <td>Preview</td>
-      <td>Status</td>
-      <td>Reply</td>
-      <td>Delete</td>
-    </tr>
-  </tfoot>
-  <tbody>
-    <% @conversations.each do |conversation| %>
-      <% receipts = conversation.receipts_for(current_user) %>
-        <% receipts.each do |receipt| %>
-          <tr>
-            <td><%= receipt.message.sender.name %> </td>
-            <td><%= receipt.message.subject%></td>
-            <td><%=link_to receipt.message.body.truncate(50), conversation_path(conversation.id)%>
-            </td>
-            <td>
-              <% if receipt.is_unread? or receipt.message.is_unread?(current_user) %>
-                <%= "Unread" %>
-              <% else %>
-                <%= "Opened" %>
-              <% end %>
-          </td>
-          <td><%= link_to '', new_message_path(receiver: 1, conversation: conversation.id), class: 'fa fa-reply' %></td>
-          <td><%= link_to '', "conversations/#{conversation.id}", class: 'fa fa-trash-o', method: :delete %></td>
+<div class="row">
+  <div class="columns large-6 small-12">
+    <div class="row">
+      <div class="columns large-4 small-4">
+        <h3><%=@box.capitalize%></h3>
+      </div>
+      <div class="columns large-8 small-8"> 
+        <%= render 'shared/msg_nav'%>
+      </div>
+    </div>
+  </div>
+    <table class="responsive">
+      <thead>
+        <tr>
+          <th>Sender</th>
+          <th>Subject</th>
+          <th>Preview</th>
+          <th>Status</th>
+          <th>Reply</th>
+          <th>Delete</th>
         </tr>
-      <% end %>
-    <%end%>
-  </tbody>
-</table
+      </thead>
+      <tfoot>
+        <tr>
+          <td>Sender</td>
+          <td>Subject</td>
+          <td>Preview</td>
+          <td>Status</td>
+          <td>Reply</td>
+          <td>Delete</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <% @conversations.each do |conversation| %>
+          <% receipts = conversation.receipts_for(current_user) %>
+            <% receipts.each do |receipt| %>
+              <tr>
+                <td><%= receipt.message.sender.name %> </td>
+                <td><%= receipt.message.subject%></td>
+                <td><%=link_to receipt.message.body.truncate(50), conversation_path(conversation.id)%>
+                </td>
+                <td>
+                  <% if receipt.is_unread? or receipt.message.is_unread?(current_user) %>
+                    <%= "Unread" %>
+                  <% else %>
+                    <%= "Opened" %>
+                  <% end %>
+              </td>
+              <td><%= link_to '', new_message_path(receiver: 1, conversation: conversation.id), class: 'fa fa-reply' %></td>
+              <td><%= link_to '', "conversations/#{conversation.id}", class: 'fa fa-trash-o', method: :delete %></td>
+            </tr>
+          <% end %>
+        <%end%>
+      </tbody>
+    </table>
+  </div> 
+</div>

@@ -1,15 +1,25 @@
-<h3 class='subheader'>Conversation Subject: <%= @conversation.subject   %></h3>
-
 <div class="row">
-  <% messages_in_conversation.each do |msg| %>
-    <hr>
-    <div class="small-4 large-3 columns">
-        <div class="th radius"><img src="http://lazyreviewzzz.com/wp-content/uploads/2010/06/L.E.-Xbox-avatar-thumb.jpg"></div><p><%= msg.message.sender.name %></p>
+
+  <div class="large-10 columns">
+  <%= render 'shared/msg_nav'%>
+  <h3 class='subheader'>Subject: <%= @conversation.subject   %></h3>
+
+    
+    <% messages_in_conversation.each do |msg| %>
+      <div class="panel msg">
+        <div class="row">
+          <div class="small-4 large-3 columns">
+            <div class="th radius"><img src="http://lazyreviewzzz.com/wp-content/uploads/2010/06/L.E.-Xbox-avatar-thumb.jpg">
+            </div>
+            <p><%= msg.message.sender.name %></p>
+          </div>
+          <div class="small-8 large-9 columns">
+            <p><%= msg.message.body %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div style="float:right"><%= link_to ' Reply', new_message_path(conversation: @conversation.id), class: 'fa fa-reply' %>
     </div>
-    <div class="small-8 large-9 columns"><p><%= msg.message.body %></p></div>
-  <% end %>
+  </div>
 </div>
-
-<br> <div style="float:right"><%= link_to ' Reply', new_message_path(conversation: @conversation.id), class: 'fa fa-reply' %></div>
-
-
