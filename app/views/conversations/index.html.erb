@@ -37,7 +37,7 @@
             <% receipts.each do |receipt| %>
               <tr>
                 <td><%= link_to receipt.message.sender.name, user_path(receipt.message.sender.id)  %> </td>
-                <td><%= receipt.message.subject%></td>
+                <td><%=link_to receipt.message.subject, conversation_path(conversation.id)%></td>
                 <td><%=link_to receipt.message.body.truncate(50), conversation_path(conversation.id)%>
                 </td>
                 <td>
