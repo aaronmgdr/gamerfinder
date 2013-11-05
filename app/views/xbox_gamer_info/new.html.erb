@@ -4,7 +4,7 @@
     <h5><small>dont worry the NSA already has it</small></h5>
 
     <%= form_tag ('/xbox_gamer_info'), method: :post, remote: true  do %>
-      <label for="tag"><h3 class="subheader">Your current Xbox Live Gamer Tag</h3></label>
+      <label for="tag"><h3 class="subheader" id:"xboxtag">Your current Xbox Live Gamer Tag</h3></label>
       <div class="row">
         <div class="large-8 small-7 columns">
           <input id="tag" type="text" name="xbox_gamertag">
@@ -19,10 +19,9 @@
       </div>
       <div class="row">
         <div class="columns large-10"> 
-          <span class="pending invisible">
-            <i class="fa fa-refresh fa-spin"></i>
-          </span>
-          <span id="goede" class="alert-box radius invisible">Successfully fetched Gamer Tag information
+          
+          <span id="feedback">
+            <!-- ajax requestion places feedback on status here -->    
           </span>
       </div>
       </div>
