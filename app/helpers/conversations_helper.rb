@@ -15,4 +15,8 @@ module ConversationsHelper
     @conversation.receipts_for(current_user)
   end
 
+  def del
+    unless @box == 'trash' then "Delete" else "Deleted" end
+  end
+
 end

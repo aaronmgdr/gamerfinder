@@ -19,7 +19,7 @@
           <th>Preview</th>
           <th>Status</th>
           <th>Reply</th>
-          <th>Delete</th>
+          <th><%=del%></th>
         </tr>
       </thead>
       <tfoot>
@@ -29,7 +29,7 @@
           <td>Preview</td>
           <td>Status</td>
           <td>Reply</td>
-          <td>Delete</td>
+          <td><%=del%></td>
         </tr>
       </tfoot>
       <tbody>
@@ -49,7 +49,9 @@
                   <% end %>
               </td>
               <td><%= link_to '', new_message_path(receiver: 1, conversation: conversation.id), class: 'fa fa-reply' %></td>
-              <td><%= link_to '', "conversations/#{conversation.id}", class: 'fa fa-trash-o', method: :delete %></td>
+              <td>  
+                <%= if  @box == 'trash' then "TRUE" else link_to '', "conversations/#{conversation.id}", class: 'fa fa-trash-o', method: :delete end%>
+              </td>
             </tr>
           <% end %>
         <%end%>
