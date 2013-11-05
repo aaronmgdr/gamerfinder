@@ -49,4 +49,11 @@ class User < ActiveRecord::Base
     end
     return Comparison.all
   end
+
+  def self.last_four
+    @reversed_users = User.all.sort.reverse
+    return @reversed_users.slice(0,4)
+  end
+
 end
+
