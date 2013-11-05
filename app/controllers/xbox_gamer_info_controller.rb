@@ -6,6 +6,7 @@ class XboxGamerInfoController < ApplicationController
 
   def create
     xboxgamertag = params[:xbox_gamertag]
+    flash.now[:notice] = "This is a before Flash"
 
     user_id = current_user.id
     api = XboxLeaders::Api.new
@@ -24,8 +25,9 @@ class XboxGamerInfoController < ApplicationController
         reputation_score: xboxprofile["reputation"]
       }
     ])
+    flash.now[:notice] = "This is an After Flash"
     respond_to do |format| 
-      format.js { render layout: false }
+      format.js { render layout: false } 
       format.html {redirect_to root_path, alert: "Gathered Xbox Info for #{xboxgamertag}" }
     end
       #redirect_to root_path, alert: "Gathering Xbox Info for #{xboxgamertag}"
