@@ -1,0 +1,203 @@
+/* - - - - - GLOBAL + HTML + BODY - - - - - */
+/*div {
+  border-width: 1px;
+  border-style: solid;
+  border-color: blue;
+}*/
+
+
+@font-face {
+  font-family: "pricedownblack";
+  src: asset-url('pricedown_bl-webfont.eot');
+  src: asset-url('pricedown_bl-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('pricedown_bl-webfont.woff') format('woff'),
+       asset-url('pricedown_bl-webfont.ttf') format('truetype'),
+       asset-url('pricedown_bl-webfont.svg#pricedownblack') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  background-color: rgba(0,0,0,.0);
+  font-family: sans-serif;
+  height: 100%;
+  /*overflow-x: hidden;*/
+}
+
+body {
+  background-color: #FFF;
+  background-image: asset-url('whitediamond.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+h2 span {
+  // font-family: "pricedownblack", Arial, sans-serif;
+  font-family: 'Anton', sans-serif;
+  color:gray;
+  font-style: normal;
+}
+
+
+
+h2 {
+  margin:0
+}
+
+.logo {
+  display:inline-block;
+  text-align: center;
+}
+
+.spacer {
+  height: 50px;
+}
+/* - - - - - - - HERO CSS - - - - - - - - */
+
+// .hero-divider {
+//   margin-top:5px;
+//   margin-bottom:5px;
+//   width: 100%;
+//   background-color: white;
+//   background-color: rgba(105, 155, 55, .9);
+// }
+
+// .top-bar{
+//   margin:0;
+// }
+
+#hero-top{
+  background-color: white;
+  background-color: rgba(0,0,0,.0);
+}
+
+#hero-first{
+  background-color: white;
+  background-color: rgba(0,0,0,.0);
+}
+
+#hero-second{
+  background-color: white;
+  background-color: rgba(0,0,0,.0);
+}
+
+.hero-copy .subheader {
+  margin:0;
+
+  background-color: rgba(0,0,0,.0);
+}
+
+.hero-container {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+  background-color: rgba(0,0,0,.0);
+}
+
+
+.hero-copy{
+  /*background-color: white;*/
+  /*background-color: rgba(255, 255, 255, .4);*/
+  text-align:center;
+}
+
+
+.hero-action{
+  height: 240px;
+  background-color: white;
+  background-color: rgba(0,0,0,.0);
+  text-align:center;
+/*  -webkit-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
+  -moz-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);  
+  box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);*/
+}
+
+.hero-graphic-1 {
+  background-image:asset-url('Home_NL/sky_scenery.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.hero-graphic-2 {
+  background-image:asset-url('Home_NL/sky_falling.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.hero-graphic-3 {
+  background-image:asset-url('Home_NL/lets_go.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.newest-members {
+text-align: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: white;
+  background-color: rgba(255, 255, 255, .9);
+}
+
+.newest-members h2 {
+  color: gray;
+}
+
+
+
+
+/*- - - - - - - - - - For User Layout - - - - - - - - -*/
+
+.panel-public, .logged-in-panel{
+  border-radius: 5px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, .8);
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  border-color: rgba(0, 0, 0, .2);
+
+}
+
+.panel-public {
+  /*Keeping these out of global just in case we need customization*/
+  min-height: 400px;
+  max-height:400px;
+}
+
+
+.logged-in-panel {
+  /*Keeping these out of global just in case we need customization*/
+  height: 600px;
+}
+
+.panel-container {
+  padding:5px 5px 5px 5px;
+}
+
+.my-answers, .my-matches {
+  width: 100%;
+  background-color: white;
+  background-color: rgba(255, 255, 255, .6);
+  border-radius: 5px;
+}
+
+
+/* - - - - Fixed message modal position - - - - - - */
+
+#myModal {
+  position:fixed;
+}
