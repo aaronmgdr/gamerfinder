@@ -1,12 +1,9 @@
-
-<div class = "row">
+<div class="row">
   <!-- - - - - - - - My Matches - - - - - - - -->
   <div class = "large-4 columns">
     <div class = "my-matches">
       <% if current_user_is_owner? %>
         <%= render 'my_profile' %>
-      <% else %>
-        <%= render 'auth_profile' %>
       <% end %>
     </div>
   </div>
@@ -14,7 +11,7 @@
   <!-- - - - - - - - My Answers - - - - - - - -->
   <div class = "large-8 columns">
     <div class="my-answers">
-      <h2 class="subheader"><%=@user.name %>'s Answers</h2><hr>
+      <h2 class="subheader"><%= current_user_is_owner? ? "My" : "#{@user.name}'s" %> Responses </h2><hr>
 
         <% Question.all.each do |question| %>
           <h3 class="subheader">
@@ -30,7 +27,7 @@
     </div>    
     </div>
   </div>
-
+</div>
 
 
 
