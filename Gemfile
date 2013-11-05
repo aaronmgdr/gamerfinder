@@ -84,5 +84,4 @@ gem 'rails_12factor'
 
 gem 'carrierwave'
 gem 'rmagick'
-gem 'figaro'
 gem 'fog'
