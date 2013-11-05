@@ -38,6 +38,7 @@ class MessagesController < ApplicationController
 
   def create
     #set recipient if it was passed in from the previous page
+    @users = User.all
     if message_params[:_recipient].present?
       @recipients = [User.find(message_params[:_recipient])]
     end
@@ -49,10 +50,9 @@ class MessagesController < ApplicationController
     end
     if (@receipt.errors.blank?)
       @conversation = @receipt.conversation
-      flash[:success]= t('mailboxer.sent')
-      redirect_to conversation_path(@conversation.id)
+      redirect_to conversations_path, notice: "Message Sent"
     else
-      render :action => :new
+      redirect_to new_message_path, alert: @receipt.errors.messages
     end
   end
 

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="columns large-10 small-12">
     <%= render 'shared/msg_nav'%>
-
+    
     <%= simple_form_for :messages, :url => "/messages" do |f| %>
       
       <% if @receiver_id == nil %>
@@ -18,7 +18,7 @@
         <%= f.input :subject, placeholder: 'Wanna Game?', required: true%>
       <%end%>
 
-      <%= f.input :body, placeholder: 'write here', required: true, :as => :text%> 
+      <%= f.input :body, placeholder: 'write here', required: true%> 
       <%= f.button :submit, :value => "send message" %>
     <% end %>
   </div>
