@@ -13,160 +13,18 @@
  *= require normalize
  *= require foundation_and_overrides
  *= require foundation
+ *= require base
  *= require_self
  *= require users
  *= require conversations
  *= require responsive-tables
  */
 
-/* - - - - - GLOBAL + HTML + BODY - - - - - */
-html, body {
-  margin: 0;
-  padding: 0;
-  background: white;
-  font-family: sans-serif;
-  height: 100%;
-  /*overflow-x: hidden;*/
-}
-
-body {
-  background-color: #FFF;
-  background-image:url('whitediamond.png');
-  background-repeat: repeat;
-}
-
- h1 {
-  font-family: Arial, sans-serif;
-}
-
-
-/* - - - - - NAV BAR- - - - - - - - - - - - */
-/*.top-bar{
-
-}*/
-
-
-/* - - - - - - - HERO CSS - - - - - - - - */
-.hero-divider {
-  margin-top:5px;
-  margin-bottom:5px;
-  width: 100%;
-  background-color: white;
-  background-color: rgba(105, 155, 55, .9);
-}
-
-
-.hero-copy{
-  background-color: white;
-/*  background-color: rgba(255, 255, 255, .9);*/
-  text-align:center;
-  -webkit-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
-  -moz-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
-  box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
-}
-
-.hero-action{
-  background-color: white;
-  background-color: rgba(255, 255, 255, .4);
-  text-align:center;
-  -webkit-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
-  -moz-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
-  box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
-}
-
-
-.hero-graphic-1 {
-  background-image:url('https://s3.amazonaws.com/OKGamer/sky_scenery.jpg?AWSAccessKeyId=ASIAIOFLECZKCWG2I5UA&Expires=1383684102&Signature=wm44FpKmaBs1sirjcqJUv7ClwNU%3D&x-amz-security-token=AQoDYXdzEE0asAK5YMHLH3Knqb4agiC0OZ/uFzkIN/jhj8GFbNCeBcEgSl8UkUsvE5QSMfT/6v%2BIXCIBmtSqUJiZJzJoc8XC6KpHRjXpGv49R4Elx8cA67m09NAaxrjYWIxtN7sJclGi1Hmfuy3HjQkA9cowRmvTXTBD0BtL0cPJUiK7IHASdpy%2B%2BIOEj9h5xZMeo472m8Z27h3DlkQZ8XWzmN/pQHn98Ort8NPEXbbEGJqF1zJM6dBVyKSU0/BvXGlVwCSNJI7XPf54bcvrT%2BxaBX9nss5936h9/MJh/Y%2BEPos38xr4I2BmQwX3A044d1/fq29ZIE0fzJJAf7MqMuwzuf0dGUaTh/a0RVCiLtyqWHkWSbwrHZ3pQfR3OLBj6JKtuwDYKp4K4qwOYWAY0pWClNkyevHcC/G2IOXJ5JMF');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 600px;
-}
-
-.hero-graphic-2 {
-  background-image:url('https://s3.amazonaws.com/OKGamer/sky_falling.jpg?AWSAccessKeyId=ASIAIOFLECZKCWG2I5UA&Expires=1383684134&Signature=uan3536vQGbK6UvbdHHZtm0DnBw%3D&x-amz-security-token=AQoDYXdzEE0asAK5YMHLH3Knqb4agiC0OZ/uFzkIN/jhj8GFbNCeBcEgSl8UkUsvE5QSMfT/6v%2BIXCIBmtSqUJiZJzJoc8XC6KpHRjXpGv49R4Elx8cA67m09NAaxrjYWIxtN7sJclGi1Hmfuy3HjQkA9cowRmvTXTBD0BtL0cPJUiK7IHASdpy%2B%2BIOEj9h5xZMeo472m8Z27h3DlkQZ8XWzmN/pQHn98Ort8NPEXbbEGJqF1zJM6dBVyKSU0/BvXGlVwCSNJI7XPf54bcvrT%2BxaBX9nss5936h9/MJh/Y%2BEPos38xr4I2BmQwX3A044d1/fq29ZIE0fzJJAf7MqMuwzuf0dGUaTh/a0RVCiLtyqWHkWSbwrHZ3pQfR3OLBj6JKtuwDYKp4K4qwOYWAY0pWClNkyevHcC/G2IOXJ5JMF');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 600px;
-}
-
-.hero-graphic-3 {
-  background-image:url('https://s3.amazonaws.com/OKGamer/lets_go.jpg?AWSAccessKeyId=ASIAIOFLECZKCWG2I5UA&Expires=1383684155&Signature=MdICSixG4XUx2J9xjOXVpbcdo4E%3D&x-amz-security-token=AQoDYXdzEE0asAK5YMHLH3Knqb4agiC0OZ/uFzkIN/jhj8GFbNCeBcEgSl8UkUsvE5QSMfT/6v%2BIXCIBmtSqUJiZJzJoc8XC6KpHRjXpGv49R4Elx8cA67m09NAaxrjYWIxtN7sJclGi1Hmfuy3HjQkA9cowRmvTXTBD0BtL0cPJUiK7IHASdpy%2B%2BIOEj9h5xZMeo472m8Z27h3DlkQZ8XWzmN/pQHn98Ort8NPEXbbEGJqF1zJM6dBVyKSU0/BvXGlVwCSNJI7XPf54bcvrT%2BxaBX9nss5936h9/MJh/Y%2BEPos38xr4I2BmQwX3A044d1/fq29ZIE0fzJJAf7MqMuwzuf0dGUaTh/a0RVCiLtyqWHkWSbwrHZ3pQfR3OLBj6JKtuwDYKp4K4qwOYWAY0pWClNkyevHcC/G2IOXJ5JMF');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 600px;
-}
-
-
-.hero-99 {
-text-align: center;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  width: 100%;
-  background-color: white;
-  background-color: rgba(255, 255, 255, .9);
-}
-
-.hero-99 h2 {
-  color: gray;
-}
-
-.spacer {
-  height: 50px;
-}
-
-
-/*- - - - - - - - - - For User Layout - - - - - - - - -*/
-
-.panel-public, .logged-in-panel{
-  border-radius: 5px;
-  background-color: white;
-  background-color: rgba(255, 255, 255, .8);
-  border-style: solid;
-  border-width: 1px;
-  border-color: gray;
-  border-color: rgba(0, 0, 0, .2);
-
-}
-
-.panel-public {
-  /*Keeping these out of global just in case we need customization*/
-  min-height: 400px;
-  max-height:400px;
-}
-
-
-.logged-in-panel {
-  /*Keeping these out of global just in case we need customization*/
-  height: 600px;
-}
-
-.panel-container {
-  padding:5px 5px 5px 5px;
-}
 
 
 
-.my-answers, .my-matches {
-  width: 100%;
-  background-color: white;
-  background-color: rgba(255, 255, 255, .6);
-  border-radius: 5px;
-
-}
 
 
-
-/* - - - - Fixed message modal position - - - - - - */
-
-#myModal {
-  position:fixed;
-}
 
 
 
