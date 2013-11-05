@@ -42,9 +42,10 @@
                 </td>
                 <td>
                   <% if receipt.is_unread? or receipt.message.is_unread?(current_user) %>
-                    <%= "Unread" %>
+                    <%= content_tag(:span, "Unread", class: "success label") %>
                   <% else %>
-                    <%= "Opened" %>
+                  <%= content_tag(:span, "Opened", class: "secondary label") %>
+                    <%=  %>
                   <% end %>
               </td>
               <td><%= link_to '', new_message_path(receiver: 1, conversation: conversation.id), class: 'fa fa-reply' %></td>
