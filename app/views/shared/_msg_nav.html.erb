@@ -1,9 +1,11 @@
 <% flash.each do |name, msg| %>  
   <div data-alert class="alert-box <%=name %>">
-     <%= msg %>
+     <%=msg %>
+     
     <a href="#" class="close">&times;</a>
   </div>
 <% end %>
+
 <dl class="sub-nav">
 <!-- <dt></dt> -->
   <dd><%= link_to 'Compose', new_message_path %></dd>
