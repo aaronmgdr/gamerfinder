@@ -61,7 +61,7 @@ body {
 /*  background-color: rgba(255, 255, 255, .9);*/
   text-align:center;
   -webkit-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
-  -moz-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);  
+  -moz-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
   box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
 }
 
@@ -70,13 +70,13 @@ body {
   background-color: rgba(255, 255, 255, .4);
   text-align:center;
   -webkit-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
-  -moz-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);  
+  -moz-box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
   box-shadow:0 0 5px 5px rgba(0, 0, 0, .2);
 }
 
 
 .hero-graphic-1 {
-  background-image:url('Home_NL/sky_scenery.jpg');
+  background-image:url('https://s3.amazonaws.com/OKGamer/sky_scenery.jpg?AWSAccessKeyId=ASIAIOFLECZKCWG2I5UA&Expires=1383684102&Signature=wm44FpKmaBs1sirjcqJUv7ClwNU%3D&x-amz-security-token=AQoDYXdzEE0asAK5YMHLH3Knqb4agiC0OZ/uFzkIN/jhj8GFbNCeBcEgSl8UkUsvE5QSMfT/6v%2BIXCIBmtSqUJiZJzJoc8XC6KpHRjXpGv49R4Elx8cA67m09NAaxrjYWIxtN7sJclGi1Hmfuy3HjQkA9cowRmvTXTBD0BtL0cPJUiK7IHASdpy%2B%2BIOEj9h5xZMeo472m8Z27h3DlkQZ8XWzmN/pQHn98Ort8NPEXbbEGJqF1zJM6dBVyKSU0/BvXGlVwCSNJI7XPf54bcvrT%2BxaBX9nss5936h9/MJh/Y%2BEPos38xr4I2BmQwX3A044d1/fq29ZIE0fzJJAf7MqMuwzuf0dGUaTh/a0RVCiLtyqWHkWSbwrHZ3pQfR3OLBj6JKtuwDYKp4K4qwOYWAY0pWClNkyevHcC/G2IOXJ5JMF');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -85,7 +85,7 @@ body {
 }
 
 .hero-graphic-2 {
-  background-image:url('Home_NL/sky_falling.jpg');
+  background-image:url('https://s3.amazonaws.com/OKGamer/sky_falling.jpg?AWSAccessKeyId=ASIAIOFLECZKCWG2I5UA&Expires=1383684134&Signature=uan3536vQGbK6UvbdHHZtm0DnBw%3D&x-amz-security-token=AQoDYXdzEE0asAK5YMHLH3Knqb4agiC0OZ/uFzkIN/jhj8GFbNCeBcEgSl8UkUsvE5QSMfT/6v%2BIXCIBmtSqUJiZJzJoc8XC6KpHRjXpGv49R4Elx8cA67m09NAaxrjYWIxtN7sJclGi1Hmfuy3HjQkA9cowRmvTXTBD0BtL0cPJUiK7IHASdpy%2B%2BIOEj9h5xZMeo472m8Z27h3DlkQZ8XWzmN/pQHn98Ort8NPEXbbEGJqF1zJM6dBVyKSU0/BvXGlVwCSNJI7XPf54bcvrT%2BxaBX9nss5936h9/MJh/Y%2BEPos38xr4I2BmQwX3A044d1/fq29ZIE0fzJJAf7MqMuwzuf0dGUaTh/a0RVCiLtyqWHkWSbwrHZ3pQfR3OLBj6JKtuwDYKp4K4qwOYWAY0pWClNkyevHcC/G2IOXJ5JMF');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -94,7 +94,7 @@ body {
 }
 
 .hero-graphic-3 {
-  background-image:url('Home_NL/lets_go.jpg');
+  background-image:url('https://s3.amazonaws.com/OKGamer/lets_go.jpg?AWSAccessKeyId=ASIAIOFLECZKCWG2I5UA&Expires=1383684155&Signature=MdICSixG4XUx2J9xjOXVpbcdo4E%3D&x-amz-security-token=AQoDYXdzEE0asAK5YMHLH3Knqb4agiC0OZ/uFzkIN/jhj8GFbNCeBcEgSl8UkUsvE5QSMfT/6v%2BIXCIBmtSqUJiZJzJoc8XC6KpHRjXpGv49R4Elx8cA67m09NAaxrjYWIxtN7sJclGi1Hmfuy3HjQkA9cowRmvTXTBD0BtL0cPJUiK7IHASdpy%2B%2BIOEj9h5xZMeo472m8Z27h3DlkQZ8XWzmN/pQHn98Ort8NPEXbbEGJqF1zJM6dBVyKSU0/BvXGlVwCSNJI7XPf54bcvrT%2BxaBX9nss5936h9/MJh/Y%2BEPos38xr4I2BmQwX3A044d1/fq29ZIE0fzJJAf7MqMuwzuf0dGUaTh/a0RVCiLtyqWHkWSbwrHZ3pQfR3OLBj6JKtuwDYKp4K4qwOYWAY0pWClNkyevHcC/G2IOXJ5JMF');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -157,7 +157,7 @@ text-align: center;
   background-color: white;
   background-color: rgba(255, 255, 255, .6);
   border-radius: 5px;
- 
+
 }
 
 
