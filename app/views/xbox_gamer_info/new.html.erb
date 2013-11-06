@@ -36,7 +36,7 @@
         <% counter = 0 %>
         <% @questions.each do |question| %>
           <li><h3 class="subheader"><%= question.inquiry %>?</h3>
-            <ul class="inline-list">
+            <ul class="no-bullet">
               <% question.answers.each do |answer| %>
                 <li>
                   <label for="<%=question.id%>"><%=answer.choice%>

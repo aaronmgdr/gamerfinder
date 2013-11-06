@@ -22,6 +22,7 @@ class ResponsesController < ApplicationController
   end
 
   def bulk_update
+    # this is hard coded - must add as many possibilities as there are questions in seed
     # Response.create(user_id: params[:user_id], answer_id: 2)
     # Response.update(user_id: params[:user_id], answer_id: 2)
 
@@ -32,6 +33,13 @@ class ResponsesController < ApplicationController
       Response.create(user_id: params[:user_id], answer_id: params[:answer1])
       Response.create(user_id: params[:user_id], answer_id: params[:answer2])
       Response.create(user_id: params[:user_id], answer_id: params[:answer3])
+      Response.create(user_id: params[:user_id], answer_id: params[:answer4])
+      Response.create(user_id: params[:user_id], answer_id: params[:answer5])
+      Response.create(user_id: params[:user_id], answer_id: params[:answer6])
+      Response.create(user_id: params[:user_id], answer_id: params[:answer7])
+      Response.create(user_id: params[:user_id], answer_id: params[:answer8])
+      Response.create(user_id: params[:user_id], answer_id: params[:answer9])
+
       Comparison.quick_populate
       redirect_to users_url()
 

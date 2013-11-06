@@ -51,6 +51,11 @@ h2 {
   margin:0
 }
 
+.inline-list{
+  // to keep from radio buttons getting chopped
+  padding: 2px;
+}
+
 .logo {
   display:inline-block;
   text-align: center;
