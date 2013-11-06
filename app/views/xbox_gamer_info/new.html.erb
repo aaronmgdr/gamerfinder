@@ -7,7 +7,7 @@
       <label for="tag"><h3 class="subheader" id:"xboxtag">Your current Xbox Live Gamer Tag</h3></label>
       <div class="row">
         <div class="large-8 small-7 columns">
-          <input id="tag" type="text" name="xbox_gamertag">
+          <input id="tag" type="text" name="xbox_gamertag" placeholder="<%= current_user.xbox_gamer_info.gamertag if current_user.xbox_gamer_info.present? %>">
         </div>
         <div class="large-3 small-4 columns">
           <input type="submit" value="Lookup" id="xbox-get" class="button postfix secondary">

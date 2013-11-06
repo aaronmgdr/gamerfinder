@@ -1,20 +1,23 @@
-<h1 class="subheader"><%= @user.email %></h1>
-
 <h3 class="subheader"> Who should I game with? </h3>
+<h5 class="subheader"><%= @user.name %> </h5>
 
 <table>
   <thead>
     <tr>
-      <th>Users Matches</th>
+      <th>My Top Matches</th>
       <th>Match Score</th>
     </tr>
   </thead>
   <tbody>
     <% @sorted_matches.each do |similarity|  %>
-      <tr>
-        <td><%= similarity.compared_user.email  %></td>
-        <td><%= similarity.match_percent %></td>
-      </tr>
+      <% if similarity.match_percent > 0.49 %>
+        <tr>
+          <td><%= link_to similarity.compared_user.name, user_path(similarity.compared_user.id)  %>
+          </td>
+          <td class="<%=similarity.match_percent > 0.7 ? "label" : "secondary label"%>">
+            <%= similarity.match_percent * 100 %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
