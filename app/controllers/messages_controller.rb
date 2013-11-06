@@ -27,6 +27,8 @@ class MessagesController < ApplicationController
     @users = User.all
     @receiver_id = params[:receiver]
     @conversation_id = params[:conversation]
+
+    @receiver = User.find_by_id(params[:receiver])
   end
 
   # GET /messages/1/edit
