@@ -36,10 +36,13 @@ body {
 }
 
 h2 span {
-  // font-family: "pricedownblack", Arial, sans-serif;
-  font-family: 'Anton', sans-serif;
-  color:gray;
-  font-style: normal;
+  font-family: "pricedownblack", Arial, sans-serif;
+  color:white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 
 
@@ -71,18 +74,15 @@ h2 {
 // }
 
 #hero-top{
-  background-color: white;
-  background-color: rgba(0,0,0,.0);
+  background-color: #516174
 }
 
 #hero-first{
-  background-color: white;
-  background-color: rgba(0,0,0,.0);
+  background-color: #b7720e
 }
 
 #hero-second{
-  background-color: white;
-  background-color: rgba(0,0,0,.0);
+  background-color: black;
 }
 
 .hero-copy .subheader {
@@ -122,7 +122,7 @@ h2 {
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 500px;
 }
 
 .hero-graphic-2 {
@@ -131,7 +131,7 @@ h2 {
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 500px;
 }
 
 .hero-graphic-3 {
@@ -140,7 +140,7 @@ h2 {
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 500px;
 }
 
 .newest-members {
@@ -174,8 +174,7 @@ text-align: center;
 
 .panel-public {
   /*Keeping these out of global just in case we need customization*/
-  min-height: 400px;
-  max-height:400px;
+  max-height:200px;
 }
 
 
