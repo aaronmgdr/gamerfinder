@@ -69,8 +69,8 @@
               <div class="row">
                 <div class = "large-12 columns">
                   
-                  <%if Question.find(4).responses.find_by_user_id(this_user_id).present? %>
-                    <%= "#{Question.find(4).inquiry}: #{Question.find(4).responses.find_by_user_id(this_user_id).answer.choice}" %>
+                  <%if Question.find(1).responses.find_by_user_id(this_user_id).present? %>
+                    <%= "#{Question.find(1).inquiry}: #{Question.find(1).responses.find_by_user_id(this_user_id).answer.choice}" %>
                   <% end %>
 
                 </div>
