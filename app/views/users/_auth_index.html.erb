@@ -67,38 +67,28 @@
               <!-- - - - - - - - - - - TIMEZONE ROW - - - - - - - - - - -->
               <div class="row">
                 <div class = "large-12 columns">
-                  <hr>
-                  TimeZone: <%=Question.find(4).responses.find_by_user_id(current_user.id).answer.choice %>
-
+                  
+                  <%if Question.find(4).responses.find_by_user_id(this_user_id).present? %>
+                    <%= "#{Question.find(4).inquiry}: #{Question.find(4).responses.find_by_user_id(this_user_id).answer.choice}" %>
+                  <% end %>
+                  
                 </div>
-              </div>
-
-              <!-- - - - - - - - - MESSAGE ME ROW - - - - - - - - - -  -->
-              <div class="row">
-                <div class = "large-12 columns">
-                  <hr>
-                  <!-- <a href="#" data-reveal-id="myModal" class="button secondary small">Message Gamer</a> -->
-                </div>
-              </div>
-              <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+              </div>            
             </div>
           </div>
         </li>
       <% end %>
     </ul>
-
   </div>
 </div>
 
-
-
-
-
-
-
+<!-- - - - - - - - - MESSAGE ME ROW - - - - - - - - - -  -->
+              
+              
 <div id="myModal" class="reveal-modal">
   <%= render '/shared/compose' %>
 </div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
 
