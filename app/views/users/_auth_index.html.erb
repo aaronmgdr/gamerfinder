@@ -43,6 +43,7 @@
                     <span class="meter" style="width: <%=friendship.match_percent*100%>%"></span>
                     <% friendship.match_percent %>
                   </div>
+                  <a href="#" data-reveal-id="myModal" class="button secondary small">Message <%=friendship.compared_user.name%></a>
                 </div>
               </div>
 
@@ -51,7 +52,7 @@
                 <div class = "large-12 columns">
                   <hr>
                   <p> Name: <%= link_to friendship.compared_user.name, user_path(friendship.compared_user.id) %></p>
-                  <a href="#" data-reveal-id="myModal" class="button secondary small">Message Gamer</a>
+                  
                   <p>
                     <% if friendship.compared_user.xbox_gamer_info.present? %>
                       <%= "Xbox Live: #{friendship.compared_user.xbox_gamer_info.gamertag}" %>
@@ -64,14 +65,14 @@
                 </div>
               </div>
 
-              <!-- - - - - - - - - - - TIMEZONE ROW - - - - - - - - - - -->
+              <!-- - - - - - - - - - - Question ROW - - - - - - - - - - -->
               <div class="row">
                 <div class = "large-12 columns">
                   
                   <%if Question.find(4).responses.find_by_user_id(this_user_id).present? %>
                     <%= "#{Question.find(4).inquiry}: #{Question.find(4).responses.find_by_user_id(this_user_id).answer.choice}" %>
                   <% end %>
-                  
+
                 </div>
               </div>            
             </div>
