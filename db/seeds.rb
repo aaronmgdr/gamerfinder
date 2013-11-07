@@ -10,7 +10,7 @@ Question.create([
 	{inquiry: 'Do you regularly game with a headset/mic'},
 	{inquiry: "What's your age range"},
 	{inquiry: "You've just started playing GTA V. People are running around everywhere. What do you do "},
-	{inquiry: "What's your favorite type of online game type"},
+	{inquiry: "What's your favorite GTA Mode"},
   {inquiry: "What's your favorite thing to do when roaming around"},
   {inquiry: "How many people do you like to collaborate / team-up with"},
   {inquiry: "How frequently do you play GTA V"},
