@@ -33,12 +33,30 @@ class User < ActiveRecord::Base
     self.responses.pluck(:answer_id).sort
   end
 
-
-# Before running compare_to_all, run >>  Comparison.delete_all
+# Internal: Compares the users answers against all other users answers
+  # Examples
+  #
+  #   User.first.compare_to_all
+  #   # 
+  #
+  # Populates comparision table with user_id, %, compared_user_id
+#
+  # !!!
+  # This compare_to all method should be rewritten to update attributes
+  # rather than just creating new ones, until then…
+  # Before running compare_to_all, run >>  Comparison.delete_all
   def compare_to_all
     User.all.each do |user_being_compared|
-      unless self.id == user_being_compared.id
+      
+      #no need to compare a user to itself
+      unless self.id == user_being_compared.id 
+        
+        # creates a new array where user's response == other user response
         overlapping_answers = self.answers & user_being_compared.answers
+        
+        # by finding the number of answers that are the same
+        # we can divide this by the total possible answers to get the 
+        # % that are the same, and thus infer how compatible the gamers are. 
         value = (overlapping_answers.length.to_f / answers.length.to_f)
         Comparison.create(
           user_id:"#{self.id}",
@@ -46,10 +64,14 @@ class User < ActiveRecord::Base
           match_percent: "#{value}"
         )
       end
-    end
-    return Comparison.all
-  end
 
+      #this can probably be taken out.
+      return Comparison.all
+    
+    end
+    
+  end
+  #mike 
   def self.last_four
     @reversed_users = User.all.sort.reverse
     return @reversed_users.slice(0,4)

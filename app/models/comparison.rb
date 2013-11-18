@@ -1,5 +1,6 @@
 class Comparison < ActiveRecord::Base
   belongs_to :user
+  #self referencing relationship, allows storing of the match scores
   belongs_to :compared_user, :class_name => "User"
 
   def self.quick_populate
