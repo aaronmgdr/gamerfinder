@@ -12,6 +12,9 @@ class ResponsesController < ApplicationController
 
 
   # def edit
+  #   Ideally, this should be used vs. non-RESTful "bulk_update". 
+  #   bulk_update method is used for both editing one's responses as well as creating first-time new response. 
+  
   #   @questions = Question.all
   #   @responses = User.find(params[:user_id]).responses
   # end
@@ -23,10 +26,10 @@ class ResponsesController < ApplicationController
 
   def bulk_update
     # this is hard coded - must add as many possibilities as there are questions in seed
-    # Response.create(user_id: params[:user_id], answer_id: 2)
-    # Response.update(user_id: params[:user_id], answer_id: 2)
+    # Step 1)  Upon execution of bulk_update, all of users's answers are deleted
+    # Step 2)  For the active user, create a response (user's answer choice to question) for the specific question. This functionality requires an answer to every question.  This is NOT how we would like the update function to run.  Note: Answer0 = choice to question 1, Answer9 = choice to question 10.  Again, not ideal, but we were running short on time. 
+    # Step 3) Once the response choices have been recorded, rerun the quick_populate method.  This method runs for all users, even though only one user might have updated response choices. This made sense to us, as changing one's answers has an effect on the whole community.  
 
-      # Response.where('user_id=current_user').delete_all
 
       Response.delete_all("user_id = #{params[:user_id]}")
       Response.create(user_id: params[:user_id], answer_id: params[:answer0])
@@ -42,20 +45,7 @@ class ResponsesController < ApplicationController
 
       Comparison.quick_populate
       redirect_to users_url()
-
-
   end
 end
 
-    # I want to bulk_update all the users question responses
-    # On this page, go through each of the answer responses and
-    # update the users.response record to include the user_id with the answer_id
-
-
-
-# [
-#     {user: user, answer: Answer.find(Random.rand(1..3))},
-#     {user: user, answer: Answer.find(Random.rand(4..6))},
-#     {user: user, answer: Answer.find(Random.rand(7..9))},
-#     {user: user, answer: Answer.find(Random.rand(10..12))}
-#   ]
+ 

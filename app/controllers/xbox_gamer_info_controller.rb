@@ -11,7 +11,7 @@ class XboxGamerInfoController < ApplicationController
     user_id = current_user.id
     api = XboxLeaders::Api.new
 
-        #Stores all retrieved information into xboxprofile variable. This information is dynamic, and will change as frequently as the user interacts with Xbox Live.
+    #Stores all retrieved information into xboxprofile variable. This information is dynamic, and will change as frequently as the user interacts with Xbox Live.
     xboxprofile = api.fetch_profile(xboxgamertag)
 
 
@@ -21,6 +21,7 @@ class XboxGamerInfoController < ApplicationController
     string_recent_activity = recent_activity.to_s.downcase!
 
     #looking for hard-coded literal to indicate presence of game
+    # we did this as the thought at the time was to focus OkGamer on just 1 game.  We may remove this going forward w/ multi-game and multi-platform support.
     if string_recent_activity.include? "grand theft auto v"
       @gta_instance = true
     else
