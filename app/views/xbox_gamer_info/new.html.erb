@@ -2,7 +2,7 @@
   <div class="columns small-12 large-8">
     <h1>Tell us all your Information</h1>
     <h5><small>dont worry the NSA already has it</small></h5>
-
+    <!-- begin xbox lookup form -->
     <%= form_tag ('/xbox_gamer_info'), method: :post, remote: true  do %>
       <label for="tag"><h3 class="subheader" id:"xboxtag">Your current Xbox Live Gamer Tag</h3></label>
       <div class="row">
@@ -21,12 +21,13 @@
         <div class="columns large-10"> 
           
           <span id="feedback">
-            <!-- ajax requestion places feedback on status here -->    
+            <!-- ajax request places feedback on status here: on submit a pending message, on success a success message, have not built a failure message -->    
           </span>
       </div>
       </div>
-    <% end %> 
-      <!-- <span class="alert-box alert">Invalid XBOX Live</span> -->
+    <% end %> <!-- end xbox lookup form -->
+ 
+      <!-- not implemented: <span class="alert-box alert">Invalid XBOX Live</span> -->
   </div>
 </div>
 <div class="row">

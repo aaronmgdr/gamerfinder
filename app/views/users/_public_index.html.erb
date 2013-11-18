@@ -13,8 +13,6 @@
 </div>
 
 
-
-
 <!-- - - - - - - - - HERO 1 - - - - - - -->
 <div id = "hero-top">
   <div class = "hero-copy">
@@ -94,6 +92,7 @@
 
 
     <ul class="large-block-grid-2">
+      <!-- could probably just use the User.last(4) method here [fremen]-->
       <% @users.last_four.each do |gamer| %>
         <li>
           <div class="panel-public">
