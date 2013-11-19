@@ -9,7 +9,12 @@
   <div class="columns large-10 small-12">  
     
     <%= simple_form_for :messages, :url => "/messages" do |f| %>
-      
+    <!-- should be re written to reduce if statements. 3 ways this form may be called:
+    0. Body should always be present
+    1. new messages need a recipient to be selctable and a subject line
+    2. replys only need the conversation id, recipient and subject should not be editable (unless we want to be able to add more people to the conversation)
+    3. if the new message button was click from a certain user page or users tile on homepage, then that users should be pre selected with options to fill out subject line and body. 
+    -->
       <% if @receiver_id.present? || @conversation_id.present? %>   
         <%= "Sending Message to #{@receiver.name}"%>
         <%= link_to "Change", new_message_path %>

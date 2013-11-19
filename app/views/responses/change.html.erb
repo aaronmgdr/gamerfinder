@@ -1,3 +1,4 @@
+<!-- like a new form but as multiple records are being created/ this is used instead  -->
 <%= form_tag ("/users/#{current_user.id}/responses/bulk_update"), method: :put do %>
   <% counter = 0 %>
   <% @questions.each do |question| %>
