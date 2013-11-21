@@ -15,7 +15,7 @@
     <div class="my-answers">
       <div class="row">
         <div class = "large-2 columns">
-          <%= image_tag(@user.xbox_gamer_info.avatar_img_url) if @user.xbox_gamer_info.present?%>
+          <%= image_tag(@user.xbox_gamer_info.avatar_img_url) if @user.xbox_gamer_info.present? %>
         </div>
         <div class = "large-10 columns">
           <h2 class="subheader"><%= current_user_is_owner? ? "My" : "#{@user.name}'s" %> Responses </h2> 
@@ -31,8 +31,11 @@
 
           <h5 class="subheader">
 
-              - <%= question.responses.find_by_user_id(params[:id]).answer.choice %>
+            <% unless question.responses.find_by_user_id(params[:id]) %> 
+                  
+              <%= question.responses.find_by_user_id(params[:id]).answer.choice %>
 
+            <% end %>
           </h5>
         <% end %>
       </div>    
