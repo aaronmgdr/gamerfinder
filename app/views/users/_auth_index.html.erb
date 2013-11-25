@@ -55,18 +55,18 @@
                   
                   <p>
                     <% if friendship.compared_user.xbox_gamer_info.present? %>
-                      <%= "Xbox Live: #{friendship.compared_user.xbox_gamer_info.gamertag}" %>
+                      <%= "XBLA Gamertag: #{friendship.compared_user.xbox_gamer_info.gamertag}" %>
                       <br>
                       <%= "Reputation: #{friendship.compared_user.xbox_gamer_info.reputation_score}" %>
                       <br>
-                      <%= "Has Recently Played GTA V?: #{friendship.compared_user.xbox_gamer_info.hasgtav}" %>
+                      <%= "This user has recently played GTA V: #{friendship.compared_user.xbox_gamer_info.hasgtav}" %>
                     <%end%>
                   </p>
                 </div>
               </div>
 
               <!-- - - - - - - - - - - Question ROW - - - - - - - - - - -->
-              <div class="row">
+              <!-- <div class="row">
                 <div class = "large-12 columns">
                   
                   <%if Question.find(1).responses.find_by_user_id(this_user_id).present? %>
@@ -75,7 +75,7 @@
                   <% end %>
 
                 </div>
-              </div>            
+              </div> -->            
             </div>
           </div>
         </li>
