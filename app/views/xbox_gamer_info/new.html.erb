@@ -40,7 +40,7 @@
           <li><h3 class="subheader"><%= question.inquiry %>?</h3>
             <ul class="no-bullet">
               <% question.answers.each do |answer| %>
-                <li style="display:inline-block">
+                <li>
                   <label for="<%=question.id%>"><%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>  <%=answer.choice%></label>
                   
                 </li>
