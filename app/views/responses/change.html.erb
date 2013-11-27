@@ -5,10 +5,8 @@
     <li><%= question.inquiry %>
       <ul>
         <% question.answers.each do |answer| %>
-          <li><label for="<%=question.id%>"><%=answer.choice%></label>
-            
-            <%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>
-          </li>
+          <label for="<%=question.id%>"><%=answer.choice%></label><%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>
+          
         <% end %>
         <% counter += 1 %>
       </ul>

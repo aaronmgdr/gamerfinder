@@ -1,7 +1,7 @@
 <div class="row">
   <div class="columns small-12 large-8">
-    <h1>Tell us all your Information</h1>
-    <h5><small>dont worry the NSA already has it</small></h5>
+    <h1 style="margin-bottom:0">Tell us all your Information</h1>
+    <h5 style="margin-top:0"><small>(don't worry the NSA already has it)</small></h5>
     <!-- begin xbox lookup form -->
     <%= form_tag ('/xbox_gamer_info'), method: :post, remote: true  do %>
       <label for="tag"><h3 class="subheader" id:"xboxtag">Your current Xbox Live Gamer Tag</h3></label>
@@ -40,10 +40,9 @@
           <li><h3 class="subheader"><%= question.inquiry %>?</h3>
             <ul class="no-bullet">
               <% question.answers.each do |answer| %>
-                <li>
-                  <label for="<%=question.id%>"><%=answer.choice%>
-                  </label>
-                  <%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>
+                <li style="display:inline-block">
+                  <label for="<%=question.id%>"><%= radio_button_tag "answer#{counter}", answer.id, (current_user.responses.where(answer: answer).count > 0) %>  <%=answer.choice%></label>
+                  
                 </li>
               <% end %>
               <% counter += 1 %>
