@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Question.create([
+questions = Question.create([
 	{inquiry: 'Do you regularly game with a headset/mic'},
 	{inquiry: "What's your age range"},
 	{inquiry: "You've just started playing GTA V. People are running around everywhere. What do you do "},
@@ -150,7 +150,7 @@ Question.find(10).answers.create(choice: "I see you, I hunt you")
 #     email: "ravi@ravi.ravi",
 #     xbox_gamer_info: XboxGamerInfo.find(8)
 #   }
-])
+# ])
 
 # users.each do |user|
 #   Response.create([
