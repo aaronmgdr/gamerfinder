@@ -83,61 +83,61 @@ Question.find(10).answers.create(choice: "You hit me, I hit you")
 Question.find(10).answers.create(choice: "Keep your distance, or feel the pain")
 Question.find(10).answers.create(choice: "I see you, I hunt you")
 
-users = User.create([
-  {
-    name: "ElephantRemembers",
-    password: "password",
-    email: "mike@okgamer.co",
-  },
-  {
-    name: "dasFremenator",
-    password: "password",
-    email: "fremen@okgamer.co",
+# users = User.create([
+#   {
+#     name: "ElephantRemembers",
+#     password: "password",
+#     email: "mike@okgamer.co",
+#   },
+#   {
+#     name: "dasFremenator",
+#     password: "password",
+#     email: "fremen@okgamer.co",
 
-  },
-  {
-    name: "daftphunk",
-    password: "password",
-    email: "nik@okgamer.co",
-  },
-  {
-    name: "Gamble",
-    password: "password",
-    email: "gamble@okgamer.co",
-  },
-  {
-    name: "Lynda",
-    password: "password",
-    email: "lynda@okgamer.co",
-  },
-  {
-    name: "Ami_Free",
-    password: "password",
-    email: "ami@okgamer.co",
-  },
-  {
-    name: "meanderingJoe",
-    password: "password",
-    email: "joe@okgamer.co",
+#   },
+#   {
+#     name: "daftphunk",
+#     password: "password",
+#     email: "nik@okgamer.co",
+#   },
+#   {
+#     name: "Gamble",
+#     password: "password",
+#     email: "gamble@okgamer.co",
+#   },
+#   {
+#     name: "Lynda",
+#     password: "password",
+#     email: "lynda@okgamer.co",
+#   },
+#   {
+#     name: "Ami_Free",
+#     password: "password",
+#     email: "ami@okgamer.co",
+#   },
+#   {
+#     name: "meanderingJoe",
+#     password: "password",
+#     email: "joe@okgamer.co",
 
-  },
-  {
-    name: "RunRunRunGoose",
-    password: "password",
-    email: "taylor@okgamer.co",
+#   },
+#   {
+#     name: "RunRunRunGoose",
+#     password: "password",
+#     email: "taylor@okgamer.co",
 
-  },
-  {
-    name: "MeltingClay",
-    password: "password",
-    email: "clay@clayokgamer.co",
+#   },
+#   {
+#     name: "MeltingClay",
+#     password: "password",
+#     email: "clay@clayokgamer.co",
 
-  },
-  {
-    name: "Mankus",
-    password: "password",
-    email: "matt@mokgamer.co",
-  }
+#   },
+#   {
+#     name: "Mankus",
+#     password: "password",
+#     email: "matt@mokgamer.co",
+#   }
 #   {
 #     name: "Christina",
 #     password: "password",
@@ -152,23 +152,23 @@ users = User.create([
 #   }
 ])
 
-users.each do |user|
-  Response.create([
-    {user: user, answer: Answer.find(Random.rand(1..2))},
-    {user: user, answer: Answer.find(Random.rand(3..7))},
-    {user: user, answer: Answer.find(Random.rand(8..12))},
-    {user: user, answer: Answer.find(Random.rand(13..16))},
-    {user: user, answer: Answer.find(Random.rand(17..22))},
+# users.each do |user|
+#   Response.create([
+#     {user: user, answer: Answer.find(Random.rand(1..2))},
+#     {user: user, answer: Answer.find(Random.rand(3..7))},
+#     {user: user, answer: Answer.find(Random.rand(8..12))},
+#     {user: user, answer: Answer.find(Random.rand(13..16))},
+#     {user: user, answer: Answer.find(Random.rand(17..22))},
 
-    {user: user, answer: Answer.find(Random.rand(23..25))},
-    {user: user, answer: Answer.find(Random.rand(26..29))},
-    {user: user, answer: Answer.find(Random.rand(30..36))},
-    {user: user, answer: Answer.find(Random.rand(37..39))},
-    {user: user, answer: Answer.find(Random.rand(40..43))}
-  ])
-end
+#     {user: user, answer: Answer.find(Random.rand(23..25))},
+#     {user: user, answer: Answer.find(Random.rand(26..29))},
+#     {user: user, answer: Answer.find(Random.rand(30..36))},
+#     {user: user, answer: Answer.find(Random.rand(37..39))},
+#     {user: user, answer: Answer.find(Random.rand(40..43))}
+#   ])
+# end
 
-Comparison.quick_populate
+# Comparison.quick_populate
 
 
 
