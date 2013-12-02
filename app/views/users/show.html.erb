@@ -25,17 +25,8 @@
       <hr>
        
         <% Question.all.each do |question| %>
-          <h3 class="subheader">
-            <%= question.inquiry %>
-          </h3>
-
-          <h5 class="subheader">
-
-            <% unless question.responses.find_by_user_id(params[:id]) %> 
-                  
-              <%= question.responses.find_by_user_id(params[:id]).answer.choice %>
-
-            <% end %>
+          <h5 class="subheader question" style="color:black">
+            <%= question.inquiry %>? <span class="answer" style="color:blue"><%= question.responses.find_by_user_id(params[:id]).answer.choice %></span>
           </h5>
         <% end %>
       </div>    

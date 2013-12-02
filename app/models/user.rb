@@ -66,11 +66,12 @@ class User < ActiveRecord::Base
       end
 
       #this can probably be taken out.
-      return Comparison.all
+      # return Comparison.all
     
     end
     
   end
+  
   #mike 
   def self.last_four
     @reversed_users = User.all.sort.reverse
