@@ -26,7 +26,7 @@
        
         <% Question.all.each do |question| %>
           <h5 class="subheader question" style="color:black">
-            <%= question.inquiry %>? <span class="answer" style="color:blue"><%= question.responses.find_by_user_id(params[:id]).answer.choice %></span>
+            <%= question.inquiry %>? <span class="answer" style="color:grey"><%= question.responses.find_by_user_id(params[:id]).answer.choice %></span>
           </h5>
         <% end %>
       </div>    
